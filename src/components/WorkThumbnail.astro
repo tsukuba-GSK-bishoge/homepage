@@ -1,0 +1,21 @@
+---
+const {title, description, url} = Astro.props;
+---
+
+<article>
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a href={url}>Read more</a>
+</article>
+
+<style>
+  article {
+    margin: 1em;
+    padding: 1em;
+    background: #eee;
+    border-radius: 0.5em;
+}
+
+
+  
+</style>
