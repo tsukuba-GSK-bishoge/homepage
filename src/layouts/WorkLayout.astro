@@ -1,0 +1,19 @@
+---
+const {frontmatter} = Astro.props;
+---
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body>
+    <h1>{frontmatter.title}</h1>
+    <h2>投稿者: {frontmatter.author}</h2>
+    <p>{frontmatter.description}</p>
+    <slot /> <!-- Markdownコンテンツはここに挿入されます -->
+	</body>
+</html>
