@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import WorkListLayout from '../layouts/WorkListLayout.astro';
 import WorkThumbnail from '../components/WorkThumbnail.astro';
 const works = await Astro.glob('../pages/works/*.md');
 ---
 
-<Layout>
+<WorkListLayout>
   <a href="/">ページトップに戻る</a>
   <h1>作品一覧</h1>
   <div>
@@ -16,5 +16,5 @@ const works = await Astro.glob('../pages/works/*.md');
     )
   }
   </div>
-</Layout>
+</WorkListLayout>
 
