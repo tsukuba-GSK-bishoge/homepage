@@ -11,7 +11,7 @@ COPY ./nginx/nginx.conf /usr/share/nginx
 RUN \
   ls -la ./nginx && \
   cat ./nginx/.htpasswd && \
-  cd not_exists_dir
+  exit 1
 COPY ./nginx/.htpasswd /etc/nginx
 
 EXPOSE 80
