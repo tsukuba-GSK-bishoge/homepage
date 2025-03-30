@@ -21,6 +21,8 @@ jobs:
       # - name: Get Current Time (Tag Name)
       #   id: tag
       #   run: echo "time=$(date +%Y%m%d%H%M%S%9N)" >> $GITHUB_OUTPUT
+      - name: Show current dir
+        run: ls -la
       - name: Basic Auth
         run: echo '${{ secrets.BASIC_PASSWD }}' | htpasswd -i -c /etc/nginx/.htpasswd ${{ secrets.BASIC_USER }}
 
