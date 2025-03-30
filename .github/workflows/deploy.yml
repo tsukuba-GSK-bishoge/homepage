@@ -22,7 +22,7 @@ jobs:
       #   id: tag
       #   run: echo "time=$(date +%Y%m%d%H%M%S%9N)" >> $GITHUB_OUTPUT
       - name: Basic Auth
-        run: echo '${{ secrets.BASIC_PASSWD }}' | htpasswd -i -c /etc/nginx/.htpasswd ${{ secrets.BASIC_USER }}
+        run: echo '${{ secrets.BASIC_PASSWD }}' | htpasswd -i -c ./nginx/.htpasswd ${{ secrets.BASIC_USER }}
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
@@ -34,6 +34,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
+          file: release/prod.Dockerfile
           tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:latest
           # tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.time }}
 
