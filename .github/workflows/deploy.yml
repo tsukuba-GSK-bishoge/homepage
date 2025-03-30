@@ -40,6 +40,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
+          context: "{{defaultContext}}"
           file: release/prod.Dockerfile
           tags: ${{ env.REGISTRY }}/tsukuba-gsk-bishoge/${{ env.IMAGE_NAME }}:latest
 
