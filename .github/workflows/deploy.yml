@@ -35,7 +35,7 @@ jobs:
         with:
           push: true
           file: release/prod.Dockerfile
-          tags: tsukuba-gsk-bishoge/${{ github.repository }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/tsukuba-gsk-bishoge/${{ env.IMAGE_NAME }}:latest
           # tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.time }}
 
       # - name: Convert base_url for gh-pages
