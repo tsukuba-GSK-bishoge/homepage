@@ -7,5 +7,6 @@ RUN \
 
 FROM nginx:latest
 COPY --from=builder /build/dist /usr/share/nginx/html
+COPY ./nginx/nginx.conf /usr/share/nginx
 
 EXPOSE 80
