@@ -7,5 +7,7 @@ RUN \
 
 FROM nginx:latest
 COPY --from=builder /build/dist /usr/share/nginx/html
+COPY ./nginx/default.conf /etc/nginx/conf.d
+COPY ./nginx/.htpasswd /etc/nginx
 
 EXPOSE 80
