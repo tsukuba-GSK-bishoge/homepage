@@ -12,11 +12,7 @@ const works = await Astro.glob("../pages/works/*.md");
       works
         .slice(0, 3)
         .map((work) => (
-          <WorkThumbnail
-            title={work.frontmatter.title}
-            description={work.frontmatter.description}
-            url={"works/" + work.frontmatter.id}
-          />
+          <WorkThumbnail title={work.frontmatter.title} description={work.frontmatter.description} url={work.url} />
         ))
     }
   </div>

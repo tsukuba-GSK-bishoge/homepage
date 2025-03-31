@@ -3,7 +3,6 @@ layout: ../../layouts/WorkLayout.astro
 title: テストの作品2
 author: reversed_R
 description: Markdownで作品ページを書く場合のテスト2
-id: test-work2
 ---
 
 ## 作品の制作について
