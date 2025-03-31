@@ -1,19 +1,14 @@
 services:
   web:
-    build: .
-    ports:
-      - 80:80
+    build:
+      context: .
+      dockerfile: release/prod.Dockerfile
     restart: always
-    volumes:
-      - nginx_volume:/usr/share/nginx/html
     labels:
       traefik.enable: true
       traefik.http.routers.web.rule: Host(`bishojo.gsk-tsukuba.net`)
       traefik.http.routers.web.entrypoints: websecure
       traefik.http.routers.web.tls.certresolver: lehttp
-
-volumes:
-  nginx_volume:
 
 networks:
   traefik-network:
