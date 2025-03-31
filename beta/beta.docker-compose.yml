@@ -1,0 +1,18 @@
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: beta/beta.Dockerfile
+    restart: always
+    labels:
+      traefik.enable: true
+      traefik.http.routers.web.rule: Host(`bishojo.gsk-tsukuba.net`)
+      traefik.http.routers.web.entrypoints: websecure
+      traefik.http.routers.web.tls.certresolver: lehttp
+    environment:
+      - BASIC_USER
+      - BASIC_PASSWD
+
+networks:
+  traefik-network:
+    external: true
