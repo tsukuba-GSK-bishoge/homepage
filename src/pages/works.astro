@@ -1,19 +1,27 @@
 ---
 import WorkListLayout from "../layouts/WorkListLayout.astro";
 import WorkThumbnail from "../components/WorkThumbnail.astro";
-const works = await Astro.glob("../pages/works/*.md");
+
+import { getCollection } from "astro:content";
+const works = await getCollection("works");
 ---
 
 <WorkListLayout>
-  <a href="/">ページトップに戻る</a>
-  <h1>作品一覧</h1>
+  <div id="header">
+    <h1>作品一覧</h1>
+  </div>
+  <h1 id="h1-back">作品一覧</h1>
+
   <div>
     {
-      works
-        .slice(0, 3)
-        .map((work) => (
-          <WorkThumbnail title={work.frontmatter.title} description={work.frontmatter.description} url={work.url} />
-        ))
+      works.map((work: any) => (
+        <WorkThumbnail
+          title={work.data.title}
+          description={work.data.description}
+          id={work.id}
+          keyVisualPath={"/src/pages/works/" + work.id + "/images/keyvisual.png"}
+        />
+      ))
     }
   </div>
 </WorkListLayout>

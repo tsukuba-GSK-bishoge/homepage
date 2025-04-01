@@ -13,7 +13,9 @@
     "format:check": "prettier --cache --check ."
   },
   "dependencies": {
-    "astro": "^5.5.3"
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.5.3",
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.28.0",
