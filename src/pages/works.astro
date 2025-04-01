@@ -19,7 +19,11 @@ const works = await getCollection("works");
   <h1 id="h1-back">作品一覧</h1>
 
   <div>
-    {works.map((work) => <WorkThumbnail title={work.data.title} description={work.data.description} url={work.url} />)}
+    {
+      works.map((work: any) => (
+        <WorkThumbnail title={work.data.title} description={work.data.description} id={work.id} />
+      ))
+    }
     <!-- keyVisual={import("../pages" + work.url + "/images/keyvisual.png")} -->
   </div>
 
