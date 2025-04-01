@@ -1,7 +1,14 @@
 ---
 import WorkListLayout from "../layouts/WorkListLayout.astro";
 import WorkThumbnail from "../components/WorkThumbnail.astro";
-const works = await Astro.glob("../pages/works/*.md");
+
+import { getCollection } from "astro:content";
+const works = await getCollection("works");
+
+//const works = await Astro.glob("../pages/works/*.md");
+// const works = Object.values(import.meta.glob("./posts/*.md", { eager: true }));
+//const works = import.meta.glob("./posts/*.md", { eager: true });
+//console.log(works);
 ---
 
 <WorkListLayout>
@@ -12,18 +19,8 @@ const works = await Astro.glob("../pages/works/*.md");
   <h1 id="h1-back">作品一覧</h1>
 
   <div>
-    {
-      works
-        .slice(0, 3)
-        .map((work) => (
-          <WorkThumbnail
-            title={work.frontmatter.title}
-            description={work.frontmatter.description}
-            url={work.url}
-            keyVisual={import("../pages" + work.url + "/images/keyvisual.png")}
-          />
-        ))
-    }
+    {works.map((work) => <WorkThumbnail title={work.data.title} description={work.data.description} url={work.url} />)}
+    <!-- keyVisual={import("../pages" + work.url + "/images/keyvisual.png")} -->
   </div>
 
   <div id="footer">

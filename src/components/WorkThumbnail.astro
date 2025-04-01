@@ -1,6 +1,8 @@
 ---
-const { title, description, url, keyVisual } = Astro.props;
+//const { title, description, url, keyVisual } = Astro.props;
+const { title, description, url } = Astro.props;
 import { Image } from "astro:assets";
+const keyVisual2 = (await import("../pages" + url + "/images/keyvisual.png")).default;
 ---
 
 <article>
@@ -12,7 +14,7 @@ import { Image } from "astro:assets";
     </section>
   </div>
   <div id="image-wrapper">
-    <Image src={keyVisual} alt="Key Visual" class="key-visual" />
+    <Image src={keyVisual2} alt="Key Visual" class="key-visual" />
   </div>
 </article>
 
