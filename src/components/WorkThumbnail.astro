@@ -1,18 +1,66 @@
 ---
 const { title, description, url } = Astro.props;
+import { Image } from "astro:assets";
+import keyVisual from "../pages/works/test-work2/images/keyvisual.png";
 ---
 
 <article>
-  <h2>{title}</h2>
-  <p>{description}</p>
-  <a href={url}>Read more</a>
+  <div id="text-wrapper">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <section>
+      <a href={url}>&gt;&gt; Read more...</a>
+    </section>
+  </div>
+  <div id="image-wrapper">
+    <Image src={keyVisual} alt="Key Visual" class="key-visual" />
+  </div>
 </article>
 
 <style>
   article {
     margin: 1em;
     padding: 1em;
-    background-color: #6fc4ff;
+    background-color: #b8e2ff;
     border-radius: 0.5em;
+    width: auto;
+    display: grid;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+    grid-template-columns: 1fr auto;
+
+    #text-wrapper {
+      padding: 2em;
+
+      h2 {
+        text-align: center;
+      }
+
+      section {
+        position: relative;
+        transition: 0.25s all;
+        width: fit-content;
+        a {
+          text-decoration: none;
+        }
+      }
+
+      section:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    #image-wrapper {
+      padding: 2em;
+      .key-visual {
+        width: auto;
+        height: 80vh;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
   }
 </style>
