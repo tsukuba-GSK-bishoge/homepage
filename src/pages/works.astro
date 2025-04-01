@@ -4,16 +4,10 @@ import WorkThumbnail from "../components/WorkThumbnail.astro";
 
 import { getCollection } from "astro:content";
 const works = await getCollection("works");
-
-//const works = await Astro.glob("../pages/works/*.md");
-// const works = Object.values(import.meta.glob("./posts/*.md", { eager: true }));
-//const works = import.meta.glob("./posts/*.md", { eager: true });
-//console.log(works);
 ---
 
 <WorkListLayout>
   <div id="header">
-    <!-- <a href="/">トップページに戻る</a> -->
     <h1>作品一覧</h1>
   </div>
   <h1 id="h1-back">作品一覧</h1>
@@ -21,10 +15,14 @@ const works = await getCollection("works");
   <div>
     {
       works.map((work: any) => (
-        <WorkThumbnail title={work.data.title} description={work.data.description} id={work.id} />
+        <WorkThumbnail
+          title={work.data.title}
+          description={work.data.description}
+          id={work.id}
+          keyVisualPath={"/src/pages/works/" + work.id + "/images/keyvisual.png"}
+        />
       ))
     }
-    <!-- keyVisual={import("../pages" + work.url + "/images/keyvisual.png")} -->
   </div>
 
   <div id="footer">

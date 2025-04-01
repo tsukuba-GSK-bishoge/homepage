@@ -1,8 +1,13 @@
 ---
-//const { title, description, id, keyVisual } = Astro.props;
-const { title, description, id } = Astro.props;
+import type { ImageMetadata } from "astro";
+
+const { title, description, id, keyVisualPath } = Astro.props;
 import { Image } from "astro:assets";
-const keyVisual = (await import("../pages/works/" + id + "/images/keyvisual.png")).default;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/pages/works/*/images/keyvisual.{jpeg,jpg,png,gif}");
+if (!images[keyVisualPath])
+  throw new Error(
+    `"${keyVisualPath}" does not exist in glob: "/src/pages/works/*/images/keyvisual.{jpeg,jpg,png,gif}"`
+  );
 ---
 
 <article>
@@ -14,7 +19,7 @@ const keyVisual = (await import("../pages/works/" + id + "/images/keyvisual.png"
     </section>
   </div>
   <div id="image-wrapper">
-    <Image src={keyVisual} alt="Key Visual" class="key-visual" />
+    <Image src={images[keyVisualPath]()} alt="Key Visual" class="key-visual" />
   </div>
 </article>
 
