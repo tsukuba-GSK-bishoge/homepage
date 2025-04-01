@@ -5,15 +5,86 @@ const works = await Astro.glob("../pages/works/*.md");
 ---
 
 <WorkListLayout>
-  <a href="/">ページトップに戻る</a>
-  <h1>作品一覧</h1>
+  <div id="header">
+    <!-- <a href="/">トップページに戻る</a> -->
+    <h1>作品一覧</h1>
+  </div>
+  <h1 id="h1-back">作品一覧</h1>
+
   <div>
     {
       works
         .slice(0, 3)
         .map((work) => (
-          <WorkThumbnail title={work.frontmatter.title} description={work.frontmatter.description} url={work.url} />
+          <WorkThumbnail
+            title={work.frontmatter.title}
+            description={work.frontmatter.description}
+            url={work.url}
+            keyVisual={import("../pages" + work.url + "/images/keyvisual.png")}
+          />
         ))
     }
   </div>
+
+  <div id="footer">
+    <a href="/">&gt;&gt; トップページに戻る</a>
+  </div>
 </WorkListLayout>
+
+<style>
+  #header {
+    background-color: #0d5cff;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24em;
+    height: 10em;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+
+    & > h1 {
+      font-size: 4em;
+      color: #fff;
+      position: absolute;
+      margin: 0;
+      top: 0.5em;
+      left: 0.5em;
+    }
+  }
+
+  #h1-back {
+    font-size: 4em;
+    color: #0d5cff;
+    position: fixed;
+    margin: 0;
+    top: 0.5em;
+    left: 0.5em;
+    z-index: 99;
+  }
+
+  #footer {
+    background-color: #0d5cff;
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 20em;
+    height: 6em;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+
+    a {
+      font-size: 1em;
+      color: #fff;
+      position: absolute;
+      margin: 0;
+      bottom: 1rem;
+      right: 1rem;
+      text-decoration: none;
+      transition: 0.25s all;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+    }
+  }
+</style>
