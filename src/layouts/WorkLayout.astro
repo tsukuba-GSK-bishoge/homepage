@@ -11,10 +11,78 @@ const { frontmatter } = Astro.props;
     <title>Astro Basics</title>
   </head>
   <body>
-    <h1>{frontmatter.title}</h1>
-    <h2>投稿者: {frontmatter.author}</h2>
-    <p>{frontmatter.description}</p>
-    <slot />
-    <!-- Markdownコンテンツはここに挿入されます -->
+    <div id="wrapper">
+      <div id="header">
+        <h1>{frontmatter.title}</h1>
+      </div>
+      <h1 id="h1-back">{frontmatter.title}</h1>
+      <h2>投稿者: {frontmatter.author}</h2>
+      <p>{frontmatter.description}</p>
+      <slot />
+      <!-- Markdownコンテンツはここに挿入されます -->
+    </div>
   </body>
 </html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    scroll-behavior: smooth;
+    scroll-padding-top: 8em;
+  }
+
+  #wrapper {
+    margin: 2em;
+    padding-top: 8em;
+
+    background-image: url("/src/pages/works/test-work/images/keyvisual.png");
+    background-attachment: fixed;
+    /* background-attachment: scroll; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: lighten;
+    background-position: center;
+
+    img {
+      max-width: 80vw;
+      max-height: 90vh;
+      display: block;
+      margin: auto;
+    }
+  }
+
+  #header {
+    background-color: #0d5cff;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24em;
+    height: 10em;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+
+    & > h1 {
+      font-size: 4em;
+      color: #fff;
+      position: absolute;
+      margin: 0;
+      top: 0.5em;
+      left: 0.5em;
+    }
+  }
+
+  #h1-back {
+    font-size: 4em;
+    color: #0d5cff;
+    position: fixed;
+    margin: 0;
+    top: 0.5em;
+    left: 0.5em;
+    z-index: 99;
+  }
+</style>
