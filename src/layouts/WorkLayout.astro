@@ -20,6 +20,7 @@ const { frontmatter } = Astro.props;
       <p>{frontmatter.description}</p>
       <slot />
       <!-- Markdownコンテンツはここに挿入されます -->
+      <p>© {new Date().getFullYear()} 筑波大学現代視覚文化研究会美少女ゲーム制作班/Philia All Rights Reserved.</p>
     </div>
   </body>
 </html>
@@ -55,6 +56,78 @@ const { frontmatter } = Astro.props;
       max-height: 90vh;
       display: block;
       margin: auto;
+    }
+
+    blockquote {
+      margin: 0 auto;
+      padding: 0.5em;
+      width: 70%;
+      border-radius: 0.5em;
+      background-color: #fff1ff;
+    }
+
+    code {
+      background-color: #fff1ff;
+      border-radius: 0.25em;
+    }
+
+    .astro-code {
+      margin: 0 auto;
+      padding: 0.5em;
+      width: 70%;
+      border-radius: 0.5em;
+      text-align: left;
+      code {
+        background-color: #24292e;
+        border-radius: 0;
+      }
+    }
+
+    table {
+      margin: 0 auto;
+      border-spacing: 0;
+      border-radius: 0.5em;
+      border-collapse: separate;
+
+      thead {
+        th {
+          padding: 0.6em;
+          background-color: #ffa0d8;
+        }
+        tr:first-child th:first-child {
+          border-top-left-radius: 0.5em;
+        }
+        tr:first-child th:last-child {
+          border-top-right-radius: 0.5em;
+        }
+      }
+      tbody {
+        tr:nth-child(odd) td {
+          background-color: #fff1ff;
+        }
+        tr:nth-child(even) td {
+          background-color: #ffdcff;
+        }
+        td {
+          padding: 0.6em;
+        }
+        tr:last-child td:first-child {
+          border-bottom-left-radius: 0.5em;
+        }
+        tr:last-child td:last-child {
+          border-bottom-right-radius: 0.5em;
+        }
+      }
+    }
+
+    hr {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      width: 80%;
+      height: 0;
+      padding: 0;
+      border: 0;
+      border-top: 6px dotted #ff6bc2;
     }
   }
 
