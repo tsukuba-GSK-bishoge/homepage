@@ -30,13 +30,13 @@ const { frontmatter } = Astro.props;
     margin: 0;
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: #4d484d;
     scroll-behavior: smooth;
     scroll-padding-top: 8em;
   }
 
   #wrapper {
-    margin: 2em;
+    padding: 2em;
     padding-top: 8em;
 
     background-image: url("/src/pages/works/test-work/images/keyvisual.png");
@@ -48,6 +48,8 @@ const { frontmatter } = Astro.props;
     background-blend-mode: lighten;
     background-position: center;
 
+    text-align: center;
+
     img {
       max-width: 80vw;
       max-height: 90vh;
@@ -57,7 +59,7 @@ const { frontmatter } = Astro.props;
   }
 
   #header {
-    background-color: #0d5cff;
+    background-color: #ffa0d8;
     z-index: 100;
     position: fixed;
     top: 0;
@@ -69,7 +71,7 @@ const { frontmatter } = Astro.props;
     & > h1 {
       font-size: 4em;
       color: #fff;
-      position: absolute;
+      position: fixed;
       margin: 0;
       top: 0.5em;
       left: 0.5em;
@@ -78,7 +80,7 @@ const { frontmatter } = Astro.props;
 
   #h1-back {
     font-size: 4em;
-    color: #0d5cff;
+    color: #ffa0d8;
     position: fixed;
     margin: 0;
     top: 0.5em;
