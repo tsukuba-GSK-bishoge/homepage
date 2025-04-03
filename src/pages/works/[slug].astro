@@ -32,7 +32,7 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{work.data.title}</title>
   </head>
   <body>
     <div
@@ -40,14 +40,19 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
       style={{
         backgroundImage: `url(${backgroundImage.src})`,
       }}>
-      <div id="header">
-        <h1>{work.data.title}</h1>
-      </div>
-      <h1 id="h1-back">{work.data.title}</h1>
-      <!-- <h2>投稿者: {work.data.author}</h2> -->
-      <p>{work.data.description}</p>
-      <Content />
-      <p>© {new Date().getFullYear()} 筑波大学現代視覚文化研究会美少女ゲーム制作班/Philia All Rights Reserved.</p>
+      <header>
+        <div id="header">
+          <h1>{work.data.title}</h1>
+        </div>
+        <h1 id="h1-back">{work.data.title}</h1>
+      </header>
+      <main>
+        <Content />
+      </main>
+      <footer>
+        <a href="/works">&gt;&gt; 他の作品も見る</a>
+        <p>© {new Date().getFullYear()} 筑波大学現代視覚文化研究会美少女ゲーム制作班/Philia All Rights Reserved.</p>
+      </footer>
     </div>
   </body>
 </html>
@@ -64,9 +69,6 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
   }
 
   #wrapper {
-    padding: 2em;
-    padding-top: 8em;
-
     /* background-image: var(--backgroundImageUrl); */
     background-attachment: fixed;
     /* background-attachment: scroll; */
@@ -77,6 +79,11 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
     background-position: center;
 
     text-align: center;
+  }
+
+  main {
+    padding: 2em;
+    padding-top: 8em;
 
     img {
       /* max-height: 90vh; */
@@ -192,5 +199,25 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
     top: 0.5em;
     left: 0.5em;
     z-index: 99;
+  }
+
+  footer {
+    display: block;
+    background-color: #fea6ff;
+    width: 100vw;
+    padding: 1em;
+    color: #fff;
+
+    a {
+      display: block;
+      font-size: 1em;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.25s all;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+    }
   }
 </style>
