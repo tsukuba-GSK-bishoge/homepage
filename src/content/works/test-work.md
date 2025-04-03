@@ -13,7 +13,7 @@ description: Markdownで作品ページを書く場合のテスト
 
 本作品は、美少女ゲーム制作班を代表する*スーパーシナリオライター*の**椎名理央**の4760作品目となります。
 
-<img src="/src/pages/works/test-work/images/keyvisual.png" alt="Key Visual">
+![Key Visual](../../assets/works/test-work/keyvisual.png)
 
 ## 作品の内容
 
