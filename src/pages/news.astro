@@ -1,13 +1,12 @@
 ---
-import WorkListLayout from "../layouts/WorkListLayout.astro";
-import WorkThumbnail from "../components/WorkThumbnail.astro";
+import NewsListLayout from "../layouts/NewsListLayout.astro";
 
 import { getCollection } from "astro:content";
 import NewsThumbnail from "../components/NewsThumbnail.astro";
 const news = await getCollection("news");
 ---
 
-<WorkListLayout>
+<NewsListLayout>
   <div id="header">
     <h1>NEWS</h1>
   </div>
@@ -20,7 +19,7 @@ const news = await getCollection("news");
   <div id="footer">
     <a href="/">&gt;&gt; トップページに戻る</a>
   </div>
-</WorkListLayout>
+</NewsListLayout>
 
 <style>
   #header {
