@@ -15,6 +15,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "astro": "^5.5.3",
+    "swiper": "^11.2.6",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
