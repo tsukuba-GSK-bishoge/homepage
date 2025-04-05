@@ -1,0 +1,173 @@
+---
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const news = await getCollection("news");
+  return news.map((article: any) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>NEWS</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>{article.data.description}</h1>
+      <h1>{article.data.date}</h1>
+      <main>
+        <Content />
+      </main>
+      <footer>
+        <a href="/news">&gt;&gt; 他のニュースも見る</a>
+        <p>© {new Date().getFullYear()} 筑波大学現代視覚文化研究会美少女ゲーム制作班/Philia All Rights Reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4d484d;
+    scroll-behavior: smooth;
+    scroll-padding-top: 8em;
+  }
+
+  #wrapper {
+    /* background-image: var(--backgroundImageUrl); */
+    background-attachment: fixed;
+    /* background-attachment: scroll; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: lighten;
+    background-position: center;
+
+    text-align: center;
+  }
+
+  main {
+    padding: 2em;
+    padding-top: 8em;
+
+    img {
+      /* max-height: 90vh; */
+      /* max-width: 80vw; */
+      width: auto;
+      height: 90vh;
+      @media screen and (max-width: 768px) {
+        width: 80vw;
+        height: auto;
+      }
+      display: block;
+      margin: auto;
+    }
+
+    blockquote {
+      margin: 0 auto;
+      padding: 0.5em;
+      width: 70%;
+      border-radius: 0.5em;
+      background-color: #fff1ff;
+    }
+
+    code {
+      background-color: #fff1ff;
+      border-radius: 0.25em;
+    }
+
+    .astro-code {
+      margin: 0 auto;
+      padding: 0.5em;
+      width: 70%;
+      border-radius: 0.5em;
+      text-align: left;
+      code {
+        background-color: #24292e;
+        border-radius: 0;
+      }
+    }
+
+    table {
+      margin: 0 auto;
+      border-spacing: 0;
+      border-radius: 0.5em;
+      border-collapse: separate;
+
+      thead {
+        th {
+          padding: 0.6em;
+          background-color: #ffa0d8;
+        }
+        tr:first-child th:first-child {
+          border-top-left-radius: 0.5em;
+        }
+        tr:first-child th:last-child {
+          border-top-right-radius: 0.5em;
+        }
+      }
+      tbody {
+        tr:nth-child(odd) td {
+          background-color: #fff1ff;
+        }
+        tr:nth-child(even) td {
+          background-color: #ffdcff;
+        }
+        td {
+          padding: 0.6em;
+        }
+        tr:last-child td:first-child {
+          border-bottom-left-radius: 0.5em;
+        }
+        tr:last-child td:last-child {
+          border-bottom-right-radius: 0.5em;
+        }
+      }
+    }
+
+    hr {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      width: 80%;
+      height: 0;
+      padding: 0;
+      border: 0;
+      border-top: 6px dotted #ff6bc2;
+    }
+  }
+
+  footer {
+    display: block;
+    background-color: #fea6ff;
+    width: 100vw;
+    padding: 1em;
+    color: #fff;
+
+    a {
+      display: block;
+      font-size: 1em;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.25s all;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+    }
+  }
+</style>

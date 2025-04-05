@@ -1,34 +1,25 @@
 ---
-import WorkListLayout from "../layouts/WorkListLayout.astro";
-import WorkThumbnail from "../components/WorkThumbnail.astro";
+import NewsListLayout from "../layouts/NewsListLayout.astro";
 
 import { getCollection } from "astro:content";
-const works = await getCollection("works");
+import NewsThumbnail from "../components/NewsThumbnail.astro";
+const news = await getCollection("news");
 ---
 
-<WorkListLayout>
+<NewsListLayout>
   <div id="header">
-    <h1>作品一覧</h1>
+    <h1>NEWS</h1>
   </div>
-  <h1 id="h1-back">作品一覧</h1>
+  <h1 id="h1-back">NEWS</h1>
 
   <div>
-    {
-      works.map((work: any) => (
-        <WorkThumbnail
-          title={work.data.title}
-          description={work.data.description}
-          id={work.id}
-          keyVisualPath={"/src/assets/works/" + work.id + "/keyvisual.png"}
-        />
-      ))
-    }
+    {news.map((article: any) => <NewsThumbnail description={article.data.description} id={article.id} />)}
   </div>
 
   <div id="footer">
     <a href="/">&gt;&gt; トップページに戻る</a>
   </div>
-</WorkListLayout>
+</NewsListLayout>
 
 <style>
   #header {

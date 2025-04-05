@@ -1,5 +1,6 @@
 ---
-
+import { getCollection } from "astro:content";
+const news = await getCollection("news");
 ---
 
 <div id="container">
@@ -16,9 +17,37 @@
     <a href="/contact">CONTACT</a>
   </p>
 
-  <p><img src="/images/keyvisual.png" alt="たりない天使さま" width="300" height="430" /></p>
-  <h4>NEWS</h4>
-  <p>・ホームページを制作しました。</p>
+  <div class="slider">
+    <div class="slider-item">
+      <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;">
+    </div>
+    <div class="slider-item">
+      <img src="/images/pure.jpg" style="width: 550px;height: 500px; background-color: blue;">
+    </div>
+    <div class="slider-item">
+      <img src="/images/otogi.jpg" style="width: 550px;height: 500px; background-color: green;">
+    </div>
+    <div class="slider-item">
+      <img src="/images/shinkan.jpg" style="width: 550px;height: 500px; background-color: yellow;">
+    </div>
+    <div class="slider-item">
+      <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;">
+    </div>
+  </div>
+  <div id="news-list">
+    <h4>NEWS</h4>
+    {
+      news.map((article) => (
+        <article class="news-line">
+          <p>{article.data.date}</p>
+          <h1>
+            <a href={"/news/" + article.id}>{article.data.description}</a>
+          </h1>
+        </article>
+      ))
+    }
+    <a id="news-link" href="/news">&gt;&gt; 他のニュースも見る</a>
+  </div>
   <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
   <p>
     筑波大学現代視覚文化研究会美少女ゲーム制作班では、主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの同人誌即売会で作品を頒布することを目標としています。2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p>
@@ -32,5 +61,105 @@
     <a class="twitter-timeline" href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw" width="300" height="430">Tweets by tsukuba_bishojo</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </p>
+
 </div>
-<style></style>
+
+<style>
+  .slider {
+  width: 550px;
+  height: 500px;
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slider > :first-child {
+  -webkit-animation-name: scroll;
+  animation-name: scroll;
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+0% {
+  margin-left: 0;
+}
+
+20% {
+  margin-left: -100%;
+}
+
+25% {
+  margin-left: -100%;
+}
+
+45% {
+  margin-left: -200%;
+}
+
+50% {
+  margin-left: -200%;
+}
+
+70% {
+  margin-left: -300%;
+}
+
+75% {
+  margin-left: -300%;
+}
+
+95% {
+  margin-left: -400%;
+}
+
+100% {
+  margin-left: -400%;
+}
+}
+  #news-list {
+    margin: 1em;
+    h4 {
+      margin: 0;
+      border-bottom: 1px solid #000;
+    }
+
+    .news-line {
+      padding: 0.8em;
+      border-bottom: 1px solid #000;
+      p {
+        margin: 0;
+        font-size: 0.8rem;
+      }
+
+      h1 {
+        margin: 0.4;
+        font-size: 1.2rem;
+        a {
+          display: inline-block;
+          color: #000;
+          transition: 0.25s all;
+        }
+
+        a:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    #news-link {
+      display: inline-block;
+      margin: 0.5em;
+      color: #000;
+      transition: 0.25s all;
+    }
+
+    #news-link:hover {
+      transform: scale(1.05);
+    }
+  }
+</style>

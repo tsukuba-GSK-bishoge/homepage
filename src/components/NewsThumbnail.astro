@@ -1,23 +1,13 @@
 ---
-import type { ImageMetadata } from "astro";
-
-const { title, description, id, keyVisualPath } = Astro.props;
-import { Image } from "astro:assets";
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/works/*/keyvisual.{jpeg,jpg,png,gif}");
-if (!images[keyVisualPath])
-  throw new Error(`"${keyVisualPath}" does not exist in glob: "/src/assets/works/*/keyvisual.{jpeg,jpg,png,gif}"`);
+const { description, id } = Astro.props;
 ---
 
 <article>
   <div id="text-wrapper">
-    <h2>{title}</h2>
-    <p>{description}</p>
+    <h2>{description}</h2>
     <section>
-      <a href={"/works/" + id}>&gt;&gt; Read more...</a>
+      <a href={"/news/" + id}>&gt;&gt; Read more...</a>
     </section>
-  </div>
-  <div id="image-wrapper">
-    <Image src={images[keyVisualPath]()} alt="Key Visual" class="key-visual" />
   </div>
 </article>
 
