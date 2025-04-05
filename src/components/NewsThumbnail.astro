@@ -1,0 +1,60 @@
+---
+const { description, id } = Astro.props;
+---
+
+<article>
+  <div id="text-wrapper">
+    <h2>{description}</h2>
+    <section>
+      <a href={"/news/" + id}>&gt;&gt; Read more...</a>
+    </section>
+  </div>
+</article>
+
+<style>
+  article {
+    margin: 1em;
+    padding: 1em;
+    background-color: #fff5fb;
+    border-radius: 0.5em;
+    width: auto;
+    display: grid;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+    grid-template-columns: 1fr auto;
+
+    #text-wrapper {
+      padding: 2em;
+
+      h2 {
+        text-align: center;
+      }
+
+      section {
+        position: relative;
+        transition: 0.25s all;
+        width: fit-content;
+        a {
+          text-decoration: none;
+        }
+      }
+
+      section:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    #image-wrapper {
+      padding: 2em;
+      .key-visual {
+        width: auto;
+        height: 80vh;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+</style>
