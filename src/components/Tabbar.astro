@@ -6,10 +6,10 @@ interface Tab {
 }
 
 interface Props {
-selected: string;
+  selected: string;
 }
 
-const { selected}: Props = Astro.props;
+const { selected }: Props = Astro.props;
 ---
 
 <section id="wrapper">
@@ -22,7 +22,7 @@ const { selected}: Props = Astro.props;
       { text: "MEMBERS", jaText: "メンバー募集", url: "/members" },
       { text: "CONTACT", jaText: "お問い合わせ", url: "/contact" },
     ].map((tab: Tab) => (
-    <div class=`tab ${tab.text === selected && "selected" }`>
+      <div class={selected === tab.text ? "tab selected" : "tab"}>
         <a href={tab.url}>
           <h1>{tab.text}</h1>
           <p>{tab.jaText}</p>
