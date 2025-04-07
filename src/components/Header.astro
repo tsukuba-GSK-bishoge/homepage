@@ -1,0 +1,23 @@
+---
+import Tabbar from "./Tabbar.astro";
+interface Props {
+  selected: string;
+}
+
+const { selected }: Props = Astro.props;
+---
+
+<header>
+  <div id="top">
+    <h1>-Philia-</h1>
+    <h2>筑波大学現代視覚文化研究会美少女ゲーム制作班「Philia」</h2>
+  </div>
+  <Tabbar selected={selected} />
+</header>
+
+<style>
+  #top {
+    width: 100%;
+    text-align: center;
+  }
+</style>
