@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 const news = await getCollection("news");
+import Slider from "./Slider.astro";
 ---
 
 <div id="container">
@@ -17,23 +18,8 @@ const news = await getCollection("news");
     <a href="/contact">CONTACT</a>
   </p>
 
-  <div class="slider">
-    <div class="slider-item">
-      <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;" />
-    </div>
-    <div class="slider-item">
-      <img src="/images/pure.jpg" style="width: 550px;height: 500px; background-color: blue;" />
-    </div>
-    <div class="slider-item">
-      <img src="/images/otogi.jpg" style="width: 550px;height: 500px; background-color: green;" />
-    </div>
-    <div class="slider-item">
-      <img src="/images/shinkan.jpg" style="width: 550px;height: 500px; background-color: yellow;" />
-    </div>
-    <div class="slider-item">
-      <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;" />
-    </div>
-  </div>
+  <Slider imagePaths={["/images/keyvisual.png", "/images/pure.jpg", "/images/otogi.jpg", "/images/shinkan.jpg"]} />
+
   <div id="news-list">
     <h4>NEWS</h4>
     {
@@ -66,62 +52,6 @@ const news = await getCollection("news");
 </div>
 
 <style>
-  .slider {
-    width: 550px;
-    height: 500px;
-    display: flex;
-    overflow: hidden;
-    margin: 0 auto;
-  }
-
-  .slider > :first-child {
-    -webkit-animation-name: scroll;
-    animation-name: scroll;
-    -webkit-animation-duration: 20s;
-    animation-duration: 20s;
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-  }
-
-  @keyframes scroll {
-    0% {
-      margin-left: 0;
-    }
-
-    20% {
-      margin-left: -100%;
-    }
-
-    25% {
-      margin-left: -100%;
-    }
-
-    45% {
-      margin-left: -200%;
-    }
-
-    50% {
-      margin-left: -200%;
-    }
-
-    70% {
-      margin-left: -300%;
-    }
-
-    75% {
-      margin-left: -300%;
-    }
-
-    95% {
-      margin-left: -400%;
-    }
-
-    100% {
-      margin-left: -400%;
-    }
-  }
   #news-list {
     margin: 1em;
     h4 {
