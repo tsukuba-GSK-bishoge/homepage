@@ -4,6 +4,12 @@ interface Tab {
   jaText: string;
   url: string;
 }
+
+interface Props {
+selected: string;
+}
+
+const { selected}: Props = Astro.props;
 ---
 
 <section id="wrapper">
@@ -16,7 +22,7 @@ interface Tab {
       { text: "MEMBERS", jaText: "メンバー募集", url: "/members" },
       { text: "CONTACT", jaText: "お問い合わせ", url: "/contact" },
     ].map((tab: Tab) => (
-      <div class="tab">
+    <div class=`tab ${tab.text === selected && "selected" }`>
         <a href={tab.url}>
           <h1>{tab.text}</h1>
           <p>{tab.jaText}</p>
@@ -35,10 +41,15 @@ interface Tab {
     padding: 10px 0;
     .tab {
       text-align: center;
+      padding: 0.2em;
       a {
         text-decoration: none;
         color: inherit;
       }
+    }
+
+    .selected {
+      border-bottom: 3px solid black;
     }
 
     h1 {

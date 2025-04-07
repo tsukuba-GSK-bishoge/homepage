@@ -2,16 +2,11 @@
 import { getCollection } from "astro:content";
 const news = await getCollection("news");
 import Slider from "./Slider.astro";
-import Tabbar from "./Tabbar.astro";
+import Header from "./Header.astro";
 ---
 
 <div id="container">
-  <h1>筑波大学現代視覚文化研究会美少女ゲーム制作班「Philia」</h1>
-  <p>
-    「Philia」は筑波大学文化系サークル連合会所属現代視覚文化研究会の美少女ゲーム制作班のノベルゲーム制作ブランドです。
-  </p>
-
-  <Tabbar />
+  <Header selected="HOME" />
 
   <Slider
     images={[
@@ -22,6 +17,9 @@ import Tabbar from "./Tabbar.astro";
     ]}
   />
 
+  <p>
+    「Philia」は筑波大学文化系サークル連合会所属現代視覚文化研究会の美少女ゲーム制作班のノベルゲーム制作ブランドです。
+  </p>
   <div id="news-list">
     <h4>NEWS</h4>
     {

@@ -1,4 +1,5 @@
 ---
+import Header from "../components/Header.astro";
 import WorkListLayout from "../layouts/WorkListLayout.astro";
 import WorkThumbnail from "../components/WorkThumbnail.astro";
 
@@ -7,6 +8,7 @@ const works = await getCollection("works");
 ---
 
 <WorkListLayout>
+  <Header selected="WORKS" />
   <div id="header">
     <h1>作品一覧</h1>
   </div>
