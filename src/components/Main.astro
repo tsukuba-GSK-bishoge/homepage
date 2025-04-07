@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 const news = await getCollection("news");
 import Slider from "./Slider.astro";
+import Tabbar from "./Tabbar.astro";
 ---
 
 <div id="container">
@@ -9,14 +10,8 @@ import Slider from "./Slider.astro";
   <p>
     「Philia」は筑波大学文化系サークル連合会所属現代視覚文化研究会の美少女ゲーム制作班のノベルゲーム制作ブランドです。
   </p>
-  <p id="tabcontrol">
-    <a href="/">HOME</a>
-    <a href="/about">ABOUT</a>
-    <a href="/works">WORKS</a>
-    <a href="/character">CHARACTER</a>
-    <a href="/members">MEMBERS</a>
-    <a href="/contact">CONTACT</a>
-  </p>
+
+  <Tabbar />
 
   <Slider
     images={[

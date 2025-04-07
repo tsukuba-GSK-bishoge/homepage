@@ -1,0 +1,53 @@
+---
+interface Tab {
+  text: string;
+  jaText: string;
+  url: string;
+}
+---
+
+<section id="wrapper">
+  {
+    [
+      { text: "HOME", jaText: "ホーム", url: "/" },
+      { text: "ABOUT", jaText: "班について", url: "/about" },
+      { text: "WORKS", jaText: "作品紹介", url: "/works" },
+      { text: "CHARACTER", jaText: "イメージキャラクター", url: "/character" },
+      { text: "MEMBERS", jaText: "メンバー募集", url: "/members" },
+      { text: "CONTACT", jaText: "お問い合わせ", url: "/contact" },
+    ].map((tab: Tab) => (
+      <div class="tab">
+        <a href={tab.url}>
+          <h1>{tab.text}</h1>
+          <p>{tab.jaText}</p>
+        </a>
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  #wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    .tab {
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+
+    h1 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+</style>
