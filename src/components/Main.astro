@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 const news = await getCollection("news");
+import Slider from "./Slider.astro";
 ---
 
 <div id="container">
@@ -17,7 +18,15 @@ const news = await getCollection("news");
     <a href="/contact">CONTACT</a>
   </p>
 
-  <p><img src="/images/keyvisual.png" alt="たりない天使さま" width="300" height="430" /></p>
+  <Slider
+    images={[
+      { path: "/images/keyvisual.png", url: "/" },
+      { path: "/images/pure.jpg", url: "/" },
+      { path: "/images/otogi.jpg", url: "/" },
+      { path: "/images/shinkan.jpg", url: "/" },
+    ]}
+  />
+
   <div id="news-list">
     <h4>NEWS</h4>
     {
@@ -48,6 +57,7 @@ const news = await getCollection("news");
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </p>
 </div>
+
 <style>
   #news-list {
     margin: 1em;
