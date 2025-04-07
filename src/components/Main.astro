@@ -18,7 +18,14 @@ import Slider from "./Slider.astro";
     <a href="/contact">CONTACT</a>
   </p>
 
-  <Slider imagePaths={["/images/keyvisual.png", "/images/pure.jpg", "/images/otogi.jpg", "/images/shinkan.jpg"]} />
+  <Slider
+    images={[
+      { path: "/images/keyvisual.png", url: "/" },
+      { path: "/images/pure.jpg", url: "/" },
+      { path: "/images/otogi.jpg", url: "/" },
+      { path: "/images/shinkan.jpg", url: "/" },
+    ]}
+  />
 
   <div id="news-list">
     <h4>NEWS</h4>
