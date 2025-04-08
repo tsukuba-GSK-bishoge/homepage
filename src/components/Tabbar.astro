@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 interface Tab {
   text: string;
   jaText: string;
@@ -25,7 +26,7 @@ const { selected }: Props = Astro.props;
       <div class={selected === tab.text ? "tab selected" : "tab"}>
         <a href={tab.url}>
           <h1>{tab.text}</h1>
-          <p>{tab.jaText}</p>
+          <p class="ja-text">{tab.jaText}</p>
         </a>
       </div>
     ))
@@ -56,7 +57,8 @@ const { selected }: Props = Astro.props;
       font-size: 1.2rem;
       margin: 0;
     }
-    p {
+    .ja-text {
+      font-family: "JK Gothic", sans-serif;
       font-size: 0.9rem;
       margin: 0;
     }

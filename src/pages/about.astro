@@ -1,11 +1,12 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 ---
 
 <meta charset="UTF-8" />
 
 <div id="container">
-  <body>
+  <Layout>
     <Header selected="ABOUT" />
     <h1>筑波大学現代視覚文化研究会美少女ゲーム制作班「Philia」</h1>
     <p>
@@ -59,7 +60,7 @@ import Header from "../components/Header.astro";
     </p>
     <h3>入班に興味を持った方は美少女ゲーム制作班公式X(旧Twitter)のDMか、こちらのメールアドレスまでご連絡ください！</h3>
     <a href="https://x.com/tsukuba_bishojo">公式X(旧Twitter)はこちら</a>
-  </body>
+  </Layout>
 </div>
 
 <style></style>
