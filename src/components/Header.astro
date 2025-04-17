@@ -16,8 +16,16 @@ const { selected }: Props = Astro.props;
 </header>
 
 <style>
-  #top {
+  :global(body) {
+  margin: 0;
+  }
+
+  header {
+    background-image: linear-gradient(to right, #EBCEFF,#FFDAF4,#FFFEE0);
+    font-family: "JK Gothic", sans-serif;
     width: 100%;
     text-align: center;
-  }
+    position: relative; top: 0; 
+    padding: 2rem 0;
+    }
 </style>
