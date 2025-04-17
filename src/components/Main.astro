@@ -8,114 +8,116 @@ import Header from "../components/Header.astro";
 <div id="container">
   <Layout>
     <Header selected="HOME" />
-  
-  <div class="slider">
-    <div class="slider-item">
-      <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;">
-    </div>
-    <div class="slider-item">
-      <img src="/images/pure.jpg" style="width: 550px;height: 500px; background-color: blue;">
-    </div>
-    <div class="slider-item">
-      <img src="/images/otogi.jpg" style="width: 550px;height: 500px; background-color: green;">
-    </div>
-    <div class="slider-item">
-      <img src="/images/shinkan.jpg" style="width: 550px;height: 500px; background-color: yellow;">
-    </div>
-    <div class="slider-item">
-      <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;">
-    </div>
-  </div>
-  
-  <div id="news-list">
-    <h4>NEWS</h4>
-    {
-      news.map((article) => (
-        <article class="news-line">
-          <p>{article.data.date}</p>
-          <h1>
-            <a href={"/news/" + article.id}>{article.data.description}</a>
-          </h1>
-        </article>
-      ))
-    }
-    <a id="news-link" href="/news">&gt;&gt; 他のニュースも見る</a>
-  </div>
-  <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
-  <p>
-    筑波大学現代視覚文化研究会美少女ゲーム制作班では、主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの同人誌即売会で作品を頒布することを目標としています。2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p>
-    </p>
-    <p>
-      2024年10月より新しい班体制に生まれ変わり、毎年春と夏の年二回、企画発表会を行うことで作品企画を立てられるようになりました。主な役職はシナリオ、原画、スクリプト、制作進行、広報などがあります。春/秋に行われる企画発表会の前に企画書を提出し、企画会議に出席することで自らの作品の企画を立てられることができます。
-    </p>
-    <p>新入生の他、上級生の新規加入も歓迎しています。是非新歓等お越しください！</p>
-    <a href="/members">入班希望の方はこちら</a>
-    <h3>公式X（旧Twitter）</h3>
-    <a class="twitter-timeline" href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw" style="width: 550px;height: 500px;" >Tweets by tsukuba_bishojo</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </p>
-  </Layout>
 
+    <div class="slider">
+      <div class="slider-item">
+        <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;" />
+      </div>
+      <div class="slider-item">
+        <img src="/images/pure.jpg" style="width: 550px;height: 500px; background-color: blue;" />
+      </div>
+      <div class="slider-item">
+        <img src="/images/otogi.jpg" style="width: 550px;height: 500px; background-color: green;" />
+      </div>
+      <div class="slider-item">
+        <img src="/images/shinkan.jpg" style="width: 550px;height: 500px; background-color: yellow;" />
+      </div>
+      <div class="slider-item">
+        <img src="/images/keyvisual.png" style="width: 550px;height: 500px; background-color: red;" />
+      </div>
+    </div>
+
+    <div id="news-list">
+      <h4>NEWS</h4>
+      {
+        news.map((article) => (
+          <article class="news-line">
+            <p>{article.data.date}</p>
+            <h1>
+              <a href={"/news/" + article.id}>{article.data.description}</a>
+            </h1>
+          </article>
+        ))
+      }
+      <a id="news-link" href="/news">&gt;&gt; 他のニュースも見る</a>
+    </div>
+    <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
+    <p>
+      筑波大学現代視覚文化研究会美少女ゲーム制作班では、主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの同人誌即売会で作品を頒布することを目標としています。2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p>
+      </p>
+      <p>
+        2024年10月より新しい班体制に生まれ変わり、毎年春と夏の年二回、企画発表会を行うことで作品企画を立てられるようになりました。主な役職はシナリオ、原画、スクリプト、制作進行、広報などがあります。春/秋に行われる企画発表会の前に企画書を提出し、企画会議に出席することで自らの作品の企画を立てられることができます。
+      </p>
+      <p>新入生の他、上級生の新規加入も歓迎しています。是非新歓等お越しください！</p>
+      <a href="/members">入班希望の方はこちら</a>
+      <h3>公式X（旧Twitter）</h3>
+      <a
+        class="twitter-timeline"
+        href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw"
+        style="width: 550px;height: 500px;">Tweets by tsukuba_bishojo</a
+      >
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </p>
+  </Layout>
 </div>
 
 <style>
-  
   .slider {
-  width: 550px;
-  height: 500px;
-  display: flex;
-  overflow: hidden;
-  margin: 0 auto;
-}
+    width: 550px;
+    height: 500px;
+    display: flex;
+    overflow: hidden;
+    margin: 0 auto;
+  }
 
-.slider > :first-child {
-  -webkit-animation-name: scroll;
-  animation-name: scroll;
-  -webkit-animation-duration: 20s;
-  animation-duration: 20s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
+  .slider > :first-child {
+    -webkit-animation-name: scroll;
+    animation-name: scroll;
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
 
-@keyframes scroll {
-0% {
-  margin-left: 0;
-}
+  @keyframes scroll {
+    0% {
+      margin-left: 0;
+    }
 
-20% {
-  margin-left: -100%;
-}
+    20% {
+      margin-left: -100%;
+    }
 
-25% {
-  margin-left: -100%;
-}
+    25% {
+      margin-left: -100%;
+    }
 
-45% {
-  margin-left: -200%;
-}
+    45% {
+      margin-left: -200%;
+    }
 
-50% {
-  margin-left: -200%;
-}
+    50% {
+      margin-left: -200%;
+    }
 
-70% {
-  margin-left: -300%;
-}
+    70% {
+      margin-left: -300%;
+    }
 
-75% {
-  margin-left: -300%;
-}
+    75% {
+      margin-left: -300%;
+    }
 
-95% {
-  margin-left: -400%;
-}
+    95% {
+      margin-left: -400%;
+    }
 
-100% {
-  margin-left: -400%;
-}
-}
+    100% {
+      margin-left: -400%;
+    }
+  }
   #news-list {
     margin: 1em;
     h4 {
