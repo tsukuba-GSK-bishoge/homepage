@@ -1,7 +1,7 @@
 #timestamp:
 services:
   web:
-    image: ghcr.io/tsukuba-GSK-bishoge/homepage:latest
+    image: ghcr.io/tsukuba-gsk-bishoge/homepage:latest
     restart: always
     labels:
       traefik.enable: true
