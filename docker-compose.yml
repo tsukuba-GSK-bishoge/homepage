@@ -1,0 +1,17 @@
+#timestamp:20250423085850102388845:
+services:
+  web:
+    image: ghcr.io/tsukuba-GSK-bishoge/homepage:latest
+    restart: always
+    labels:
+      traefik.enable: true
+      traefik.http.routers.web.rule: Host(`bishojo.gsk-tsukuba.net`)
+      traefik.http.routers.web.entrypoints: websecure,web
+      traefik.http.routers.web.tls.certresolver: lehttp
+      traefik.docker.network: "traefik-network"
+    networks:
+      - traefik-network
+
+networks:
+  traefik-network:
+    external: true
