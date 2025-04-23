@@ -16,12 +16,18 @@ jobs:
       contents: write
       packages: write
     steps:
+      - name: Create PAT Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.ACTIONS_BOT_APP_ID }}
+          private-key: ${{ secrets.ACTIONS_BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Git submodule update
-        run: |
-          git submodule init
-          git submodule update
+        with:
+          submodules: recursive
+          token: ${{ steps.app-token.outputs.token }}
       - name: Get Current Time (Tag Name)
         id: tag
         run: echo "time=$(date +%Y%m%d%H%M%S%9N)" >> $GITHUB_OUTPUT
