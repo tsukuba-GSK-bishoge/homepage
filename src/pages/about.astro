@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 ---
+<about>
 
 <meta charset="UTF-8" />
 
@@ -11,10 +13,10 @@ import Header from "../components/Header.astro";
     <h2>ABOUT</h2>
     <h3>美少女ゲーム制作班「<span>Philia</span>」とは</h3>
     <p>
-      現代視覚文化研究会美少女ゲーム制作班では、主に<span>ノベルゲーム（美少女ゲーム/ＰＣゲーム）</span
-      >の制作を行っています。企画、シナリオ、原画、スクリプトなどの役職に分かれながらチームで作品を制作し、夏/冬に開催される<span
+      現代視覚文化研究会美少女ゲーム制作班では、<br />主に<span>ノベルゲーム（美少女ゲーム/ＰＣゲーム）</span
+      >の制作を行っています。<br />企画、シナリオ、原画、スクリプトなどの役職に分かれながらチームで作品を制作し、<br />夏/冬に開催される<span
         >コミックマーケット</span
-      >や<span>コミティア</span>などの同人誌即売会で作品を頒布することが目標です。<span>新入生</span>のほか<span
+      >や<span>コミティア</span>などの同人誌即売会で作品を頒布することが目標です。<br /><span>新入生</span>のほか<span
         >上級生</span
       >の新規加入も募集中です。ぜひ新歓・見学などお越しください！
     </p>
@@ -25,7 +27,7 @@ import Header from "../components/Header.astro";
     <h3>企画の立て方</h3>
     <p>
       新規ゲーム制作企画を立てたい者（<span>・木曜日</span>）は、年に二回（春/秋）行われる<span>企画発表会</span
-      >にてプレゼンを行い、制作に必要な人員を募集することができます。
+      >にてプレゼンを行い、<br />制作に必要な人員を募集することができます。
     </p>
     <p>①企画書を班長に提出</p>
     <p>②企画会議に出席</p>
@@ -37,7 +39,7 @@ import Header from "../components/Header.astro";
       ライン長は作品の企画者です。ライン全体の指揮をとる他、各役職への素材の発注や、作業・演出などの指示を行います。その作品を担う一番の責任者でもあります。
     </p>
     <h4>シナリオライター</h4>
-    作品の要となるストーリーを作り上げ、シナリオに落とし込む役職です。役職の特性上、ライン長を兼ねることも多いです。現美少女ゲーム制作班では、純愛、ファンタジーから、電波、鬱、ＢＬなど様々なジャンルの作品が執筆されています。
+    作品の要となるストーリーを作り上げ、シナリオに落とし込む役職です。<br />役職の特性上、ライン長を兼ねることも多いです。<br />現美少女ゲーム制作班では、純愛、ファンタジーから、電波、鬱、ＢＬなど様々なジャンルの作品が執筆されています。
     <h4>原画</h4>
     <p>
       作品の顔となるキャラクターの立ち絵やイベントCGを作成しています。キャラクターデザイン、キービジュアルなども原画が制作します。
@@ -56,11 +58,13 @@ import Header from "../components/Header.astro";
     <a href="https://x.com/tsukuba_bishojo">公式X(旧Twitter)はこちら</a>
   </Layout>
 </div>
+</about>
 
 <style>
-  Layout {
+  #container {
     color: #0f1419;
     font-family: sans-serif;
+    padding: 0 4rem;
   }
   span {
     color: #ff8bd3;
