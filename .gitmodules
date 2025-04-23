@@ -1,0 +1,3 @@
+[submodule "public/private-fonts"]
+	path = public/private-fonts
+	url = git@github.com:tsukuba-GSK-bishoge/homepage-fonts.git
