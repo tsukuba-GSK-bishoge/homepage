@@ -21,7 +21,7 @@ import Header from "./Header.astro";
     「Philia」は筑波大学文化系サークル連合会所属現代視覚文化研究会の美少女ゲーム制作班のノベルゲーム制作ブランドです。
   </p>
   <div id="news-list">
-    <h4>NEWS</h4>
+    <h4 id="news-heading">NEWS</h4>
     {
       news.map((article) => (
         <article class="news-line">
@@ -43,7 +43,7 @@ import Header from "./Header.astro";
     </p>
     <p>新入生の他、上級生の新規加入も歓迎しています。是非新歓等お越しください！</p>
     <a href="/members">入班希望の方はこちら</a>
-    <h3>公式X（旧Twitter）</h3>
+    <h3 id="twitter-heading">Twitter</h3>
     <a class="twitter-timeline" href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw" width="300" height="430"
       >Tweets by tsukuba_bishojo</a
     >
@@ -54,7 +54,8 @@ import Header from "./Header.astro";
 <style>
   #news-list {
     margin: 1em;
-    h4 {
+    #news-heading {
+      font-family: "CHI_SavannaG", sans-serif;
       margin: 0;
       border-bottom: 1px solid #000;
     }
@@ -92,5 +93,9 @@ import Header from "./Header.astro";
     #news-link:hover {
       transform: scale(1.05);
     }
+  }
+
+  #twitter-heading {
+    font-family: "CHI_SavannaG", sans-serif;
   }
 </style>
