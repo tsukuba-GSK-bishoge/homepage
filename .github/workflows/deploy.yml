@@ -18,9 +18,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # - name: Get Current Time (Tag Name)
-      #   id: tag
-      #   run: echo "time=$(date +%Y%m%d%H%M%S%9N)" >> $GITHUB_OUTPUT
+      - name: Git submodule update
+        run: |
+          git submodule init
+          git submodule update
+      - name: Get Current Time (Tag Name)
+        id: tag
+        run: echo "time=$(date +%Y%m%d%H%M%S%9N)" >> $GITHUB_OUTPUT
       - name: Basic Auth
         run: echo '${{ secrets.BASIC_PASSWD }}' | htpasswd -i -c ./nginx/.htpasswd ${{ secrets.BASIC_USER }}
 
@@ -37,17 +41,14 @@ jobs:
           context: .
           file: release/prod.Dockerfile
           tags: ${{ env.REGISTRY }}/tsukuba-gsk-bishoge/${{ env.IMAGE_NAME }}:latest
-
-          # tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.time }}
-
-      # - name: Convert base_url for gh-pages
-      #   run: sed -i '3 s/ghcr.io\/tsukuba-GSK-bishoge\/homepage\/website/ghcr.io\/tsukuba-GSK-bishoge\/homepage\/website:${{ steps.tag.outputs.time }}/g' compose.yml
-      # - name: Show release/prod.compose.yml
-      #   run: cat release/prod.compose.yml
-      # - name: Push prod.compose.yml to release branch
-      #   uses: s0/git-publish-subdir-action@develop
-      #   env:
-      #     REPO: self
-      #     BRANCH: release
-      #     FOLDER: release
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update compose timestamp
+        run: sed -i '1 s/#timestamp/#timestamp:${{ steps.tag.outputs.time }}/g' release/docker-compose.yml
+      - name: Show release/docker-compose.yml
+        run: cat release/docker-compose.yml
+      - name: Push docker-compose.yml to release branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: release
+          FOLDER: release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
