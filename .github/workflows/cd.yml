@@ -1,4 +1,4 @@
-name: deploy
+name: CD
 
 on:
   push:
@@ -23,6 +23,7 @@ jobs:
           app-id: ${{ secrets.ACTIONS_BOT_APP_ID }}
           private-key: ${{ secrets.ACTIONS_BOT_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
+          repositories: "homepage,homepage-fonts"
       - name: Checkout
         uses: actions/checkout@v4
         with:
