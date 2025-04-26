@@ -1,8 +1,7 @@
+#timestamp:
 services:
   web:
-    build:
-      context: ..
-      dockerfile: release/prod.Dockerfile
+    image: ghcr.io/tsukuba-gsk-bishoge/homepage:latest
     restart: always
     labels:
       traefik.enable: true
