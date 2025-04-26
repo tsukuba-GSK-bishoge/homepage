@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { getCollection } from "astro:content";
-import NewsThumbnail from "../components/NewsThumbnail.astro";
+import NewsContent from "../components/NewsContent.astro";
 const news = await getCollection("news");
 ---
 
@@ -12,7 +12,7 @@ const news = await getCollection("news");
   <main>
     <h2>NEWS</h2>
     <div>
-      {news.map((article: any) => <NewsThumbnail description={article.data.description} id={article.id} />)}
+      {news.map((article: any) => <NewsContent description={article.data.description} id={article.id} />)}
     </div>
   </main>
 </Layout>
