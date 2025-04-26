@@ -17,57 +17,63 @@ import Slider from "./Slider.astro";
     ]}
   />
 
-  <p>
-    「Philia」は<br />筑波大学文化系サークル連合会所属<br />現代視覚文化研究会美少女ゲーム制作班の<br
-    />ノベルゲームブランドです。
-  </p>
-  <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
-  <p>
-    筑波大学現代視覚文化研究会美少女ゲーム制作班では、主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの同人誌即売会で作品を頒布することを目標としています。2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p>
+  <main>
+    <p>
+      「Philia」は<br />筑波大学文化系サークル連合会所属<br />現代視覚文化研究会美少女ゲーム制作班の<br
+      />ノベルゲームブランドです。
     </p>
-
-    <div id="news-list">
-      <h4>NEWS</h4>
-      {
-        news.map((article) => (
-          <article class="news-line">
-            <p>{article.data.date}</p>
-            <h1>
-              <a href={"/news/" + article.id}>{article.data.description}</a>
-            </h1>
-          </article>
-        ))
-      }
-      <a id="news-link" href="/news">&gt;&gt; 他のニュースも見る</a>
-    </div>
     <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
     <p>
-      筑波大学現代視覚文化研究会美少女ゲーム制作班では、<br
-      />主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの<br
-      />同人誌即売会で作品を頒布することを目標としています。<br
-      />2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p></p>
-      <p>
-        2024年10月より新しい班体制に生まれ変わり、<br
-        />毎年春と夏の年二回、企画発表会を行うことで作品企画を立てられるようになりました。<br
-        />主な役職はシナリオ、原画、スクリプト、制作進行、広報などがあります。<br
-        />春/秋に行われる企画発表会の前に企画書を提出し、<br
-        />企画会議に出席することで自らの作品の企画を立てられることができます。
+      筑波大学現代視覚文化研究会美少女ゲーム制作班では、主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの同人誌即売会で作品を頒布することを目標としています。2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p>
       </p>
-      <p>新入生の他、上級生の新規加入も歓迎しています。是非新歓等お越しください！</p>
-      <a href="/members">入班希望の方はこちら</a>
-      <h3 id="twitter-heading">Twitter</h3>
-      <a
-        class="twitter-timeline"
-        href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw"
-        width="300"
-        height="430">Tweets by tsukuba_bishojo</a
-      >
-      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      <div id="news-list">
+        <h4>NEWS</h4>
+        {
+          news.map((article) => (
+            <article class="news-line">
+              <p>{article.data.date}</p>
+              <h1>
+                <a href={"/news/" + article.id}>{article.data.description}</a>
+              </h1>
+            </article>
+          ))
+        }
+        <a id="news-link" href="/news">&gt;&gt; 他のニュースも見る</a>
+      </div>
+      <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
+      <p>
+        筑波大学現代視覚文化研究会美少女ゲーム制作班では、<br
+        />主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの<br
+        />同人誌即売会で作品を頒布することを目標としています。<br
+        />2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p></p>
+        <p>
+          2024年10月より新しい班体制に生まれ変わり、<br
+          />毎年春と夏の年二回、企画発表会を行うことで作品企画を立てられるようになりました。<br
+          />主な役職はシナリオ、原画、スクリプト、制作進行、広報などがあります。<br
+          />春/秋に行われる企画発表会の前に企画書を提出し、<br
+          />企画会議に出席することで自らの作品の企画を立てられることができます。
+        </p>
+        <p>新入生の他、上級生の新規加入も歓迎しています。是非新歓等お越しください！</p>
+        <a href="/members">入班希望の方はこちら</a>
+        <h3 id="twitter-heading">Twitter</h3>
+        <a
+          class="twitter-timeline"
+          href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw"
+          width="300"
+          height="430">Tweets by tsukuba_bishojo</a
+        >
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </p>
     </p>
-  </p>
+  </main>
 </Layout>
 
 <style>
+  main {
+    margin: 5rem;
+  }
+
   #news-list {
     margin: 1em;
     #news-heading {
