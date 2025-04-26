@@ -3,11 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 ---
 
-<meta charset="UTF-8" />
-
-<div id="container">
-  <Layout>
-    <Header selected="MEMBERS" />
+<Layout>
+  <Header selected="MEMBERS" />
+  <main>
     <h2>MEMBERS</h2>
     <h3>新歓スケジュール</h3>
     <p>新歓期間は新歓イベントを行います。新入生やそうでない方もぜひお越しください！</p>
@@ -15,13 +13,13 @@ import Header from "../components/Header.astro";
     <h3>入班希望の方へ</h3>
     <p>入班希望の方は美少女ゲーム制作班公式X(旧Twitter)のＤＭかこちらのメールアドレスまでご連絡ください！</p>
     <a href="https://x.com/tsukuba_bishojo">公式X(旧Twitter)はこちら</a>
-  </Layout>
-</div>
+  </main>
+</Layout>
 
 <style>
-  #container {
+  main {
     color: #0f1419;
     font-family: sans-serif;
-    padding: 0 4rem;
+    padding: 4rem;
   }
 </style>
