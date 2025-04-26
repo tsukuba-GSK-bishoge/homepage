@@ -22,6 +22,7 @@ const { selected }: Props = Astro.props;
       { text: "CHARACTER", jaText: "イメージキャラクター", url: "/character" },
       { text: "MEMBERS", jaText: "メンバー募集", url: "/members" },
       { text: "CONTACT", jaText: "お問い合わせ", url: "/contact" },
+      { text: "NEWS", jaText: "お知らせ", url: "/news" },
     ].map((tab: Tab) => (
       <div class={selected === tab.text ? "tab selected" : "tab"}>
         <a href={tab.url}>
