@@ -15,8 +15,10 @@ const { Content } = await render(article);
 {
   article && (
     <article id={id}>
-      <h1>{article.data.description}</h1>
-      <h1>{article.data.date}</h1>
+      <header>
+        <h1>{article.data.description}</h1>
+        <h2>{article.data.date}</h2>
+      </header>
       <main>
         <Content />
       </main>
@@ -27,6 +29,21 @@ const { Content } = await render(article);
 <style>
   article {
     text-align: center;
+    padding: 1em;
+
+    header {
+      display: block;
+      margin: 0 auto;
+      background-color: #ffdaf4;
+      font-family: "JK Gothic", sans-serif;
+      width: 60%;
+      text-align: center;
+      padding: 0.5rem;
+
+      h2 {
+        font-size: 1em;
+      }
+    }
   }
 
   main {
