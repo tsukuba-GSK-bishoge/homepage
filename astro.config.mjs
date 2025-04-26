@@ -1,5 +1,6 @@
-// @ts-check
 import { defineConfig } from "astro/config";
+// import googleFontsOptimizer from 'astro-google-fonts-optimizer'; // ← 一時的に無効化
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  // integrations: [googleFontsOptimizer()], // ← ここも無効化
+});
