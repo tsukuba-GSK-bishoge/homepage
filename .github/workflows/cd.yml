@@ -46,16 +46,17 @@ jobs:
         with:
           push: true
           context: .
-          file: release/prod.Dockerfile
+          file: beta/Dockerfile
           tags: ${{ env.REGISTRY }}/tsukuba-gsk-bishoge/${{ env.IMAGE_NAME }}:latest
+          buildArgs:
+            - BASIC_USER: ${{ secrets.BASIC_USER }}
+            - BASIC_PASSWD: ${{ secrets.BASIC_PASSWD }}
       - name: Update compose timestamp
-        run: sed -i '1 s/#timestamp/#timestamp:${{ steps.tag.outputs.time }}/g' release/docker-compose.yml
-      - name: Show release/docker-compose.yml
-        run: cat release/docker-compose.yml
+        run: sed -i '1 s/#timestamp/#timestamp:${{ steps.tag.outputs.time }}/g' beta/docker-compose.yml
       - name: Push docker-compose.yml to release branch
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
           BRANCH: release
-          FOLDER: release
+          FOLDER: beta
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
