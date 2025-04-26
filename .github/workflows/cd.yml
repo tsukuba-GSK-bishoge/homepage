@@ -48,9 +48,9 @@ jobs:
           context: .
           file: beta/Dockerfile
           tags: ${{ env.REGISTRY }}/tsukuba-gsk-bishoge/${{ env.IMAGE_NAME }}:latest
-          buildArgs:
-            - BASIC_USER: ${{ secrets.BASIC_USER }}
-            - BASIC_PASSWD: ${{ secrets.BASIC_PASSWD }}
+          buildArgs: |
+            BASIC_USER=${{ secrets.BASIC_USER }}
+            BASIC_PASSWD=${{ secrets.BASIC_PASSWD }}
       - name: Update compose timestamp
         run: sed -i '1 s/#timestamp/#timestamp:${{ steps.tag.outputs.time }}/g' beta/docker-compose.yml
       - name: Push docker-compose.yml to release branch
