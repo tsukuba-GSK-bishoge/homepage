@@ -1,5 +1,6 @@
 ---
 import Tabbar from "./Tabbar.astro";
+import HamburgerMenu from "./HamburgerMenu.astro";
 interface Props {
   selected: string;
 }
@@ -12,7 +13,12 @@ const { selected }: Props = Astro.props;
     <h1>-Philia-</h1>
     <h2>筑波大学現代視覚文化研究会美少女ゲーム制作班「Philia」</h2>
   </div>
-  <Tabbar selected={selected} />
+  <section id="hamburger-menu-wrapper">
+    <HamburgerMenu selected={selected} />
+  </section>
+  <section id="tabbar-wrapper">
+    <Tabbar selected={selected} />
+  </section>
 </header>
 
 <style>
@@ -28,5 +34,17 @@ const { selected }: Props = Astro.props;
     position: relative;
     top: 0;
     padding: 2rem 0;
+  }
+
+  #tabbar-wrapper {
+    @media screen and (width < 768px) {
+      display: none;
+    }
+  }
+
+  #hamburger-menu-wrapper {
+    @media screen and (width >= 768px) {
+      display: none;
+    }
   }
 </style>

@@ -1,0 +1,149 @@
+---
+interface Tab {
+  text: string;
+  jaText: string;
+  url: string;
+}
+
+interface Props {
+  selected: string;
+}
+
+const { selected }: Props = Astro.props;
+---
+
+<div id="menu">
+  <button id="button" type="button">
+    <div id="hamburger-wrapper">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </button>
+  <div id="list">
+    {
+      [
+        { text: "HOME", jaText: "ホーム", url: "/" },
+        { text: "ABOUT", jaText: "班について", url: "/about" },
+        { text: "WORKS", jaText: "作品紹介", url: "/works" },
+        { text: "CHARACTER", jaText: "イメージキャラクター", url: "/character" },
+        { text: "MEMBERS", jaText: "メンバー募集", url: "/members" },
+        { text: "CONTACT", jaText: "お問い合わせ", url: "/contact" },
+        { text: "NEWS", jaText: "お知らせ", url: "/news" },
+      ].map((tab: Tab) => (
+        <div class={selected === tab.text ? "tab selected" : "tab"}>
+          <a href={tab.url}>
+            <h1>{tab.text}</h1>
+            <p class="ja-text">{tab.jaText}</p>
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  #button {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  #hamburger-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    span {
+      position: absolute;
+      display: block;
+      background-color: #ffffff;
+      height: 2px;
+      width: 100%;
+      transition:
+        top 300ms ease,
+        opacity 300ms ease,
+        transform 300ms ease;
+    }
+
+    span:nth-child(1) {
+      top: 30%;
+    }
+    span:nth-child(2) {
+      top: 50%;
+    }
+    span:nth-child(3) {
+      top: 70%;
+    }
+
+    &.open span:nth-child(1) {
+      top: 50%;
+      transform: rotate(30deg);
+    }
+    &.open span:nth-child(2) {
+      opacity: 0;
+      top: 50%;
+    }
+    &.open span:nth-child(3) {
+      top: 50%;
+      transform: rotate(-30deg);
+    }
+  }
+
+  #list {
+    height: 0;
+    overflow: hidden;
+    transition: height 300ms ease;
+  }
+
+  #list.open {
+    height: auto; /* Alternatively adjust with specific height to prevent jumps */
+    overflow: visible; /* Allow contents to be visible */
+  }
+
+  .tab {
+    padding: 1rem;
+    background-image: linear-gradient(to right, #ebceff, #ffdaf4, #fffee0);
+    display: flex;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1 {
+      display: inline-block;
+      margin: 0;
+    }
+
+    p {
+      display: inline-block;
+      margin: 0;
+    }
+  }
+  .tab.selected {
+  }
+</style>
+
+<script>
+  let isOpen = false;
+  const hamburgerButton = document.querySelector("#button");
+  const hamburgerWrapper = document.querySelector("#hamburger-wrapper");
+  const list = document.querySelector("#list");
+
+  hamburgerButton?.addEventListener("click", () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      list?.classList.add("open");
+      hamburgerWrapper?.classList.add("open");
+    } else {
+      list?.classList.remove("open");
+      hamburgerWrapper?.classList.remove("open");
+    }
+  });
+</script>
