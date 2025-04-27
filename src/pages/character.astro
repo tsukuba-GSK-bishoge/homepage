@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 <Layout>
   <Header selected="CHARACTER" />
   <main>
-    <h2>CHARACTER</h2>
+    <h1>CHARACTER</h1>
     <p>美少女ゲーム制作班公式キャラクター『びしょげちゃん』についてご紹介します。</p>
     <h3>びしょげちゃん</h3>
     <p>「僕はびしょげちゃん。君たちにこの美少女ゲーム制作班について教えるね。」</p>
@@ -17,9 +17,14 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <style>
+  h1 {
+    font-family: "CHI_SavannaG";
+  }
   main {
+    text-align: left;
     color: #0f1419;
     font-family: sans-serif;
+    text-align: left;
     padding: 4rem;
     @media screen and (max-width: 768px) {
       padding: 1rem;

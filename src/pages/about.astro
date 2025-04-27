@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 <Layout>
   <Header selected="ABOUT" />
   <main>
-    <h2>ABOUT</h2>
+    <h1>ABOUT</h1>
     <h3>美少女ゲーム制作班「<span>Philia</span>」とは</h3>
     <p>
       現代視覚文化研究会美少女ゲーム制作班では、<br />主に<span>ノベルゲーム（美少女ゲーム/ＰＣゲーム）</span
@@ -59,8 +59,12 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <style>
+  h1 {
+    font-family: "CHI_SavannaG";
+  }
   main {
     color: #0f1419;
+    text-align: left;
     font-family: sans-serif;
     padding: 4rem;
     @media screen and (max-width: 768px) {

@@ -30,7 +30,7 @@ import Footer from "../components/Footer.astro";
     </div>
 
     <div id="news-list">
-      <h4>NEWS</h4>
+      <h1>NEWS</h1>
       {
         news.map((article) => (
           <article class="news-line">
@@ -78,6 +78,9 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <style>
+  h1 {
+    font-family: "CHI_SavannaG";
+  }
   span {
     color: #ff8bd3;
   }
