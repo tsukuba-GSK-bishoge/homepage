@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Pink from "../components/utils/Pink.astro";
+import { Image } from "astro:assets";
+import bishogechanSorry from "../assets/bishogechan-sorry.webp";
+---
+
+<Layout>
+  <Header selected="" />
+  <main>
+    <h2>404 Not Found</h2>
+    <p>
+      ごめんね。
+      <Pink>存在しないページ</Pink>だよ。
+    </p>
+    <Image src={bishogechanSorry} alt="ごめんねするびしょげちゃん" width="400" />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    color: #0f1419;
+    font-family: sans-serif;
+    padding: 4rem;
+    @media screen and (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+</style>
