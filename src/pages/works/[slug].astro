@@ -41,10 +41,7 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
         backgroundImage: `url(${backgroundImage.src})`,
       }}>
       <header>
-        <div id="header">
-          <h1>{work.data.title}</h1>
-        </div>
-        <h1 id="h1-back">{work.data.title}</h1>
+        <h1>{work.data.title}</h1>
       </header>
       <main>
         <Content />
@@ -79,6 +76,15 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
     background-position: center;
 
     text-align: center;
+    header {
+      background-image: linear-gradient(to right, #ebceff, #ffdaf4, #fffee0);
+      font-family: "JK Gothic", sans-serif;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      top: 0;
+      padding: 1em 0;
+    }
   }
 
   main {
@@ -171,47 +177,15 @@ const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 50
     }
   }
 
-  #header {
-    background-color: #ffa0d8;
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 24em;
-    height: 10em;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
-
-    & > h1 {
-      font-size: 4em;
-      color: #fff;
-      position: fixed;
-      margin: 0;
-      top: 0.5em;
-      left: 0.5em;
-    }
-  }
-
-  #h1-back {
-    font-size: 4em;
-    color: #ffa0d8;
-    position: fixed;
-    margin: 0;
-    top: 0.5em;
-    left: 0.5em;
-    z-index: 99;
-  }
-
   footer {
     display: block;
-    background-color: #fea6ff;
+    background-image: linear-gradient(to right, #fffee0, #ffdaf4, #ebceff);
     width: 100vw;
     padding: 1em;
-    color: #fff;
 
     a {
       display: block;
       font-size: 1em;
-      color: #fff;
       text-decoration: none;
       transition: 0.25s all;
     }

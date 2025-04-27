@@ -9,25 +9,57 @@ if (!images[keyVisualPath])
 ---
 
 <article>
-  <div id="text-wrapper">
-    <h2>{title}</h2>
-    <p>{description}</p>
-    <section>
-      <a href={"/works/" + id}>&gt;&gt; Read more...</a>
-    </section>
-  </div>
-  <div id="image-wrapper">
-    <Image src={images[keyVisualPath]()} alt="Key Visual" class="key-visual" />
-  </div>
+  <header>
+    <h1>{title}</h1>
+  </header>
+  <main>
+    <div id="text-wrapper">
+      <p>{description}</p>
+      <!-- <section> -->
+      <!--   <a href={"/works/" + id}>&gt;&gt; Read more...</a> -->
+      <!-- </section> -->
+    </div>
+    <div id="image-wrapper">
+      <Image src={images[keyVisualPath]()} alt="Key Visual" class="key-visual" />
+    </div>
+  </main>
 </article>
 
 <style>
+  /*
   article {
     margin: 1em;
     padding: 1em;
     background-color: #fff5fb;
     border-radius: 0.5em;
     width: auto;
+  }
+  */
+
+  article {
+    text-align: center;
+    padding: 1em 0;
+
+    header {
+      display: block;
+      margin: 0 auto;
+      background-color: #ffdaf4;
+      font-family: "JK Gothic", sans-serif;
+      width: 60%;
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
+      text-align: center;
+      padding: 0.5rem;
+
+      h2 {
+        font-size: 1em;
+      }
+    }
+  }
+
+  main {
+    padding: 1em;
     display: grid;
     @media screen and (max-width: 768px) {
       display: block;
@@ -59,11 +91,14 @@ if (!images[keyVisualPath])
       padding: 2em;
       .key-visual {
         width: auto;
-        height: 80vh;
+        max-height: 80vh;
         @media screen and (max-width: 768px) {
           width: 100%;
           height: auto;
         }
+      }
+      @media screen and (max-width: 768px) {
+        padding: 0;
       }
     }
   }
