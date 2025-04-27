@@ -30,7 +30,8 @@ import Footer from "../components/Footer.astro";
     </div>
 
     <div id="news-list">
-      <h1>NEWS</h1>
+      <h1><span>×××</span>　NEWS　<span>×××</span></h1>
+
       {
         news.map((article) => (
           <article class="news-line">
@@ -70,7 +71,7 @@ import Footer from "../components/Footer.astro";
 
     <a href="/members">入班希望の方はこちら</a>
 
-    <h3 id="twitter-heading">Twitter</h3>
+    <h2 id="twitter-heading">Twitter</h2>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </main>
 
@@ -80,6 +81,9 @@ import Footer from "../components/Footer.astro";
 <style>
   h1 {
     font-family: "CHI_SavannaG";
+  }
+  h3 {
+    font-weight: 400;
   }
   span {
     color: #ff8bd3;
