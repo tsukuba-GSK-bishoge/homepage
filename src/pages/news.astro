@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import NewsContent from "../components/NewsContent.astro";
 const news = await getCollection("news");
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
@@ -15,6 +16,7 @@ const news = await getCollection("news");
       {news.map((article: any) => <NewsContent description={article.data.description} id={article.id} />)}
     </div>
   </main>
+  <Footer />
 </Layout>
 
 <style>
