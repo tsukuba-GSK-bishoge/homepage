@@ -6,12 +6,18 @@ import WorkThumbnail from "../components/WorkThumbnail.astro";
 import { getCollection } from "astro:content";
 const works = await getCollection("works");
 import Footer from "../components/Footer.astro";
+import Pink from "../components/utils/Pink.astro";
 ---
 
 <Layout>
   <Header selected="WORKS" />
   <main>
     <h2>WORKS</h2>
+    <p>
+      <Pink>美少女ゲーム制作班で制作された作品たち</Pink>です。
+    </p>
+    <p>これが全てではなく、とりあえず載せられるものだけ載せています。</p>
+    <p><Pink>作品の個別ページ</Pink>も今後公開されるかもしれませんよ〜。</p>
 
     <div>
       {
