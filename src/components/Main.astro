@@ -22,11 +22,12 @@ import Footer from "../components/Footer.astro";
     <div class="wave-box">
       <img src="/images/kazariwaku.png" alt="飾り上" class="wave-img top" />
       <div class="wave-text">
-    <p>
-      「Philia」は<br />筑波大学文化系サークル連合会所属<br />現代視覚文化研究会美少女ゲーム制作班の<br />ノベルゲームブランドです。
-    </p>
+        <p>
+          「Philia」は<br />筑波大学文化系サークル連合会所属<br />現代視覚文化研究会美少女ゲーム制作班の<br
+          />ノベルゲームブランドです。
+        </p>
+      </div>
     </div>
-  </div>
 
     <div id="news-list">
       <h4>NEWS</h4>
@@ -47,9 +48,12 @@ import Footer from "../components/Footer.astro";
 
     <p>
       筑波大学現代視覚文化研究会美少女ゲーム制作班では、<br />
-      主に<span>ノベルゲーム（美少女ゲーム/PCゲーム）</span>の制作を行い、毎年夏/冬に開催される<span>コミックマーケット</span>や<span>コミティア</span>などの<br />
+      主に<span>ノベルゲーム（美少女ゲーム/PCゲーム）</span>の制作を行い、毎年夏/冬に開催される<span
+        >コミックマーケット</span
+      >や<span>コミティア</span>などの<br />
       同人誌即売会で作品を頒布することを目標としています。<br />
-      2025年4月の現在では<span>毎週木曜日</span>に筑波大学内の文化系サークル館にある<span>BOX</span>でミーティングを行っています。
+      2025年4月の現在では<span>毎週木曜日</span>に筑波大学内の文化系サークル館にある<span>BOX</span
+      >でミーティングを行っています。
     </p>
 
     <p>
@@ -68,7 +72,6 @@ import Footer from "../components/Footer.astro";
 
     <h3 id="twitter-heading">Twitter</h3>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    
   </main>
 
   <Footer />
@@ -79,34 +82,33 @@ import Footer from "../components/Footer.astro";
     color: #ff8bd3;
   }
   .wave-box {
-  position: relative;
-  width: 80%;
-  text-align: center; /* ← ここ追加！ */
-  max-width: 500px;
-  margin: 0 auto;
-}
+    position: relative;
+    width: 80%;
+    text-align: center; /* ← ここ追加！ */
+    max-width: 500px;
+    margin: 0 auto;
+  }
 
-.wave-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+  .wave-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
-.wave-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* ぴったり中央 */
-  width: 100%; /* ←90%から100%にする！ */
-  text-align: center;
-  color: #0f1419;
-  font-family: sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.8; /* ← 少し広げて改行を自然に */
-  padding: 0 1rem;
-  box-sizing: border-box; /* ← padding込みで中央化 */
-}
-
+  .wave-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ぴったり中央 */
+    width: 100%; /* ←90%から100%にする！ */
+    text-align: center;
+    color: #0f1419;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8; /* ← 少し広げて改行を自然に */
+    padding: 0 1rem;
+    box-sizing: border-box; /* ← padding込みで中央化 */
+  }
 
   h3 {
     background-image: linear-gradient(to right, #ebceff, #ffdaf4, #fffee0);
