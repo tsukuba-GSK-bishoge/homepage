@@ -29,7 +29,7 @@ const { Content } = await render(article);
 <style>
   article {
     text-align: center;
-    padding: 1em;
+    padding: 1em 0;
 
     header {
       display: block;
@@ -37,6 +37,9 @@ const { Content } = await render(article);
       background-color: #ffdaf4;
       font-family: "JK Gothic", sans-serif;
       width: 60%;
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
       text-align: center;
       padding: 0.5rem;
 
@@ -47,7 +50,7 @@ const { Content } = await render(article);
   }
 
   main {
-    padding: 2em;
+    padding: 1em;
 
     img {
       /* max-height: 90vh; */
@@ -68,6 +71,9 @@ const { Content } = await render(article);
       width: 70%;
       border-radius: 0.5em;
       background-color: #fff1ff;
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
     }
 
     code {
@@ -81,6 +87,9 @@ const { Content } = await render(article);
       width: 70%;
       border-radius: 0.5em;
       text-align: left;
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
       code {
         background-color: #24292e;
         border-radius: 0;
