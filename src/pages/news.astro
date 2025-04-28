@@ -11,7 +11,7 @@ import Footer from "../components/Footer.astro";
 <Layout>
   <Header selected="NEWS" />
   <main>
-    <h2>NEWS</h2>
+    <h1>NEWS</h1>
     <div>
       {news.map((article: any) => <NewsContent description={article.data.description} id={article.id} />)}
     </div>
@@ -20,7 +20,11 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <style>
+  h1 {
+    font-family: "CHI_SavannaG";
+  }
   main {
+    text-align: left;
     color: #0f1419;
     font-family: sans-serif;
     padding: 4rem;

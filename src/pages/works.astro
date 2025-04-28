@@ -12,7 +12,7 @@ import Pink from "../components/utils/Pink.astro";
 <Layout>
   <Header selected="WORKS" />
   <main>
-    <h2>WORKS</h2>
+    <h1>WORKS</h1>
     <p>
       <Pink>美少女ゲーム制作班で制作された作品たち</Pink>です。
     </p>
@@ -36,9 +36,13 @@ import Pink from "../components/utils/Pink.astro";
 </Layout>
 
 <style>
+  h1 {
+    font-family: "CHI_SavannaG";
+  }
   main {
     color: #0f1419;
     font-family: sans-serif;
+    text-align: left;
     padding: 4rem;
     @media screen and (max-width: 768px) {
       padding: 1rem;

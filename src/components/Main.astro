@@ -19,109 +19,176 @@ import Footer from "../components/Footer.astro";
   />
 
   <main>
-    <p>
-      「Philia」は<br />筑波大学文化系サークル連合会所属<br />現代視覚文化研究会美少女ゲーム制作班の<br
-      />ノベルゲームブランドです。
-    </p>
-    <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
-    <p>
-      筑波大学現代視覚文化研究会美少女ゲーム制作班では、主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの同人誌即売会で作品を頒布することを目標としています。2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p>
-      </p>
-
-      <div id="news-list">
-        <h4>NEWS</h4>
-        {
-          news.map((article) => (
-            <article class="news-line">
-              <p>{article.data.date}</p>
-              <h1>
-                <a href={"/news/#" + article.id}>{article.data.description}</a>
-              </h1>
-            </article>
-          ))
-        }
-        <a id="news-link" href="/news">&gt;&gt; 他のニュースも見る</a>
-      </div>
-      <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
-      <p>
-        筑波大学現代視覚文化研究会美少女ゲーム制作班では、<br
-        />主にノベルゲーム（美少女ゲーム/PCゲーム）の制作を行い、毎年夏/冬に開催されるコミックマーケットやコミティアなどの<br
-        />同人誌即売会で作品を頒布することを目標としています。<br
-        />2025年4月の現在では毎週木曜日に筑波大学内の文化系サークル館にあるBOXでミーティングを行っています。<p></p>
+    <div class="wave-box">
+      <img src="/images/kazariwaku.png" alt="飾り上" class="wave-img top" />
+      <div class="wave-text">
         <p>
-          2024年10月より新しい班体制に生まれ変わり、<br
-          />毎年春と夏の年二回、企画発表会を行うことで作品企画を立てられるようになりました。<br
-          />主な役職はシナリオ、原画、スクリプト、制作進行、広報などがあります。<br
-          />春/秋に行われる企画発表会の前に企画書を提出し、<br
-          />企画会議に出席することで自らの作品の企画を立てられることができます。
+          「Philia」は<br />筑波大学文化系サークル連合会所属<br />現代視覚文化研究会美少女ゲーム制作班の<br
+          />ノベルゲームブランドです。
         </p>
-        <p>新入生の他、上級生の新規加入も歓迎しています。是非新歓等お越しください！</p>
-        <a href="/members">入班希望の方はこちら</a>
-        <h3 id="twitter-heading">Twitter</h3>
-        <a
-          class="twitter-timeline"
-          href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw"
-          width="300"
-          height="430">Tweets by tsukuba_bishojo</a
-        >
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </p>
+      </div>
+    </div>
+
+    <div id="news-list">
+      <h1 id="news"><span>×××</span>　NEWS　<span>×××</span></h1>
+
+      {
+        news.map((article) => (
+          <article class="news-line">
+            <p>{article.data.date}</p>
+            <h1>
+              <a href={"/news/#" + article.id}>{article.data.description}</a>
+            </h1>
+          </article>
+        ))
+      }
+      <a id="news-link" href="/news">&gt;&gt; 他のニュースも見る</a>
+    </div>
+
+    <h3>現代視覚文化研究会美少女ゲーム制作班とは？</h3>
+
+    <p>
+      筑波大学現代視覚文化研究会美少女ゲーム制作班では、<br />
+      主に<span>ノベルゲーム（美少女ゲーム/PCゲーム）</span>の制作を行い、毎年夏/冬に開催される<span
+        >コミックマーケット</span
+      >や<span>コミティア</span>などの<br />
+      同人誌即売会で作品を頒布することを目標としています。<br />
+      2025年4月の現在では<span>毎週木曜日</span>に筑波大学内の文化系サークル館にある<span>BOX</span
+      >でミーティングを行っています。
     </p>
+
+    <p>
+      2024年10月より新しい班体制に生まれ変わり、<br />
+      毎年春と夏の年二回、<span>企画発表会</span>を行うことで作品企画を立てられるようになりました。<br />
+      主な役職は<span>シナリオ、原画、スクリプト、制作進行、広報</span>などがあります。<br />
+      春/秋に行われる企画発表会の前に企画書を提出し、<br />
+      企画会議に出席することで自らの作品の企画を立てられることができます。
+    </p>
+
+    <p>
+      <span>新入生</span>の他、<span>上級生</span>の新規加入も歓迎しています。是非新歓等お越しください！
+    </p>
+
+    <a href="/members">入班希望の方はこちら</a>
+
+    <h2 id="twitter-heading">Twitter</h2>
+    <a class="twitter-timeline" href="https://twitter.com/tsukuba_bishojo?ref_src=twsrc%5Etfw"
+      >Tweets by tsukuba_bishojo</a
+    >
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </main>
+
   <Footer />
 </Layout>
 
 <style>
+  #news {
+    font-family: "CHI_SavannaG";
+  }
+  h3 {
+    font-weight: 400;
+    text-align: center;
+  }
+  span {
+    color: #ff8bd3;
+  }
+  .wave-box {
+    position: relative;
+    width: 80%;
+    text-align: center; /* ← ここ追加！ */
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .wave-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .wave-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ぴったり中央 */
+    width: 100%; /* ←90%から100%にする！ */
+    text-align: center;
+    color: #0f1419;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8; /* ← 少し広げて改行を自然に */
+    padding: 0 1rem;
+    box-sizing: border-box; /* ← padding込みで中央化 */
+  }
+
+  h3 {
+    background-image: linear-gradient(to right, #ebceff, #ffdaf4, #fffee0);
+    width: 100%;
+    height: 100px; /* 高さ少し高く */
+    text-align: center;
+    display: flex; /* ← 中央揃えのためflex使います！ */
+    align-items: center; /* 縦方向中央揃え */
+    justify-content: center; /* 横方向中央揃え */
+    font-weight: 400;
+    font-size: 1.5rem; /* 少し大きめ */
+  }
+
   main {
     color: #0f1419;
     font-family: sans-serif;
     padding: 4rem;
-    @media screen and (max-width: 768px) {
+  }
+
+  @media screen and (max-width: 768px) {
+    main {
       padding: 1rem;
     }
   }
 
   #news-list {
     margin: 1em;
-    #news-heading {
-      font-family: "CHI_SavannaG", sans-serif;
-      margin: 0;
-      border-bottom: 1px solid #000;
-    }
+  }
 
-    .news-line {
-      padding: 0.8em;
-      border-bottom: 1px solid #000;
-      p {
-        margin: 0;
-        font-size: 0.8rem;
-      }
+  #news-list h4 {
+    font-family: "CHI_SavannaG", sans-serif;
+    margin: 0;
+    border-bottom: 1px solid #000;
+  }
 
-      h1 {
-        margin: 0.4;
-        font-size: 1.2rem;
-        a {
-          display: inline-block;
-          color: #000;
-          transition: 0.25s all;
-        }
+  .news-line {
+    padding: 0.8em;
+    border-bottom: 1px solid #000;
+  }
 
-        a:hover {
-          transform: scale(1.05);
-        }
-      }
-    }
+  .news-line p {
+    margin: 0;
+    font-size: 0.8rem;
+  }
 
-    #news-link {
-      display: inline-block;
-      margin: 0.5em;
-      color: #000;
-      transition: 0.25s all;
-    }
+  .news-line h1 {
+    margin: 0.4em 0;
+    font-size: 1.2rem;
+  }
 
-    #news-link:hover {
-      transform: scale(1.05);
-    }
+  .news-line h1 a {
+    display: inline-block;
+    color: #000;
+    transition: 0.25s all;
+  }
+
+  .news-line h1 a:hover {
+    transform: scale(1.05);
+  }
+
+  #news-link {
+    display: inline-block;
+    margin: 0.5em;
+    color: #000;
+    transition: 0.25s all;
+  }
+
+  #news-link:hover {
+    transform: scale(1.05);
   }
 
   #twitter-heading {

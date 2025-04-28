@@ -10,8 +10,8 @@ const { selected }: Props = Astro.props;
 
 <header>
   <div id="top">
-    <h1>-Philia-</h1>
-    <h2>筑波大学現代視覚文化研究会美少女ゲーム制作班「Philia」</h2>
+    <h1><span>×××</span>　-Philia- <span>×××</span></h1>
+    <h4>筑波大学現代視覚文化研究会美少女ゲーム制作班「Philia」</h4>
   </div>
   <section id="hamburger-menu-wrapper">
     <HamburgerMenu selected={selected} />
@@ -22,13 +22,20 @@ const { selected }: Props = Astro.props;
 </header>
 
 <style>
+  h4 {
+    font-family: sans-serif;
+    font-weight: 400;
+  }
+  span {
+    color: #ffffff;
+  }
   :global(body) {
     margin: 0;
   }
 
   header {
     background-image: linear-gradient(to right, #ebceff, #ffdaf4, #fffee0);
-    font-family: "JK Gothic", sans-serif;
+    font-family: "CHI_SavannaG";
     width: 100%;
     text-align: center;
     position: relative;
