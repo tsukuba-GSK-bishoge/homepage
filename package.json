@@ -13,11 +13,11 @@
     "format:check": "prettier --cache --check ."
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
+    "@astrojs/check": "^0.9.2",
     "@splidejs/splide": "^4.1.4",
     "astro": "^5.5.3",
     "astro-google-fonts-optimizer": "^0.2.2",
-    "swiper": "^11.2.6",
+    "swiper": "^12.1.2",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
