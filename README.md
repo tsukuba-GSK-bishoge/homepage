@@ -24,14 +24,14 @@ npm run preview  # ビルド結果のプレビュー
 
 `master` ブランチへの Pull Request 時に ESLint と Prettier によるチェックが自動で走ります。チェックを通過しないと PR をマージできません。
 
-手元でも事前に確認できます：
+以下のコマンドを実行することで、手元でも事前に確認できます。
 
 ```bash
 npm run eslint:check
 npm run format:check
 ```
 
-問題があれば以下で自動修正できます：
+問題があれば、以下のコマンドで自動修正できます。
 
 ```bash
 npm run eslint
@@ -73,7 +73,7 @@ description: 作品の説明
 本文をここにMarkdown形式で書きます。
 ```
 
-- キービジュアル画像（必須）: `src/assets/works/{slug}/keyvisual.{png|jpg|jpeg|gif}` に配置してください。
+- キービジュアル画像（必須）: `src/assets/works/{slug}/keyvisual.{webp|png|jpg|jpeg|gif}` に配置してください。
 - URL: `https://bishojo.gsk-tsukuba.net/works/{slug}`
 - 画像などのアセット: `src/assets/works/{slug}/` に置き、`![説明](../../assets/works/{slug}/fuga.png)` で参照できます。
 

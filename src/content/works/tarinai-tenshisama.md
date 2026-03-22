@@ -16,7 +16,7 @@ COMITIA152にて頒布予定です。
 
 ## 作品の内容
 
-![Key Visual](../../assets/works/tarinai-tenshisama/keyvisual.png)
+![Key Visual](../../assets/works/tarinai-tenshisama/keyvisual.webp)
 
 ある朝起きたら、同居人のお姉さんが幼女になっていた——
 
