@@ -5,22 +5,28 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Slider from "./Slider.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import keyvisual from "../assets/keyvisual.png";
+import pure from "../assets/pure.jpg";
+import otogi from "../assets/otogi.jpg";
+import shinkan from "../assets/shinkan.jpg";
+import kazariwaku from "../assets/kazariwaku.png";
 ---
 
 <Layout>
   <Header selected="HOME" />
   <Slider
     images={[
-      { path: "/images/keyvisual.png", url: "/" },
-      { path: "/images/pure.jpg", url: "/" },
-      { path: "/images/otogi.jpg", url: "/" },
-      { path: "/images/shinkan.jpg", url: "/" },
+      { src: keyvisual, url: "/" },
+      { src: pure, url: "/" },
+      { src: otogi, url: "/" },
+      { src: shinkan, url: "/" },
     ]}
   />
 
   <main>
     <div class="wave-box">
-      <img src="/images/kazariwaku.png" alt="飾り上" class="wave-img top" />
+      <Image src={kazariwaku} alt="飾り上" class="wave-img top" />
       <div class="wave-text">
         <p>
           「Philia」は<br />筑波大学文化系サークル連合会所属<br />現代視覚文化研究会美少女ゲーム制作班の<br
