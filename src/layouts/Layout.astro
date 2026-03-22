@@ -1,5 +1,6 @@
 ---
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from "../siteConstants";
 ---
 
 <!doctype html>
@@ -10,31 +11,22 @@ import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ff8bd3" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      property="description"
-      content="こちらは筑波大学公認サークルである現代視覚文化研究会 美少女ゲーム制作班の公式サイトです。"
-    />
-    <meta
-      name="keyword"
-      content="筑波大学, 'University of Tsukuba', げんしけん, 現代視覚文化研究会, 美少女ゲーム制作班, 美少女ゲーム, エロゲ, エロゲー, eroge, サークル, philia, 公式サイト, bishojyo, 美少女, びしょげちゃん"
-    />
+    <meta property="description" content={SITE_DESCRIPTION} />
+    <meta name="keyword" content={SITE_KEYWORDS} />
     <!-- meta settings end -->
     <!-- icon settings start -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" sizes="any" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="筑波大学現代視覚文化研究会 美少女ゲーム制作班" />
+    <meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
     <link rel="manifest" href="/manifest.json" />
     <!-- icon settings end -->
     <!-- OG setting start -->
     <meta property="og:locale" content="ja_JP" />
-    <meta property="og:site_name" content="筑波大学現代視覚文化研究会 美少女ゲーム制作班" />
-    <meta property="og:title" content="筑波大学現代視覚文化研究会 美少女ゲーム制作班" />
-    <meta
-      property="og:description"
-      content="こちらは筑波大学公認サークルである現代視覚文化研究会 美少女ゲーム制作班の公式サイトです。"
-    />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
     <meta
       property="og:image"
       content="https://raw.githubusercontent.com/Kirinoha-Novel/natsuiro-nikki-website/refs/heads/main/public/og-image.webp"
@@ -49,7 +41,7 @@ import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
     <meta name="twitter:site" content="@tsukuba_bishojo" />
     <meta name="twitter:creator" content="@tsukuba_bishojo" />
     <!-- Twitter card settings end -->
-    <title>筑波大学現代視覚文化研究会 美少女ゲーム制作班</title>
+    <title>{SITE_TITLE}</title>
   </head>
   <body>
     <slot />
