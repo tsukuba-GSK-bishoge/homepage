@@ -44,24 +44,23 @@ const SITE_KEYWORDS =
     <meta name="twitter:creator" content="@tsukuba_bishojo" />
     <!-- Twitter card settings end -->
     <title>{SITE_TITLE}</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "Noto Sans JP", sans-serif;
+        text-align: center;
+        color: #0f1419;
+        img {
+          max-width: 90%;
+          height: auto;
+        }
+      }
+    </style>
   </head>
   <body>
     <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    font-family: "Noto Sans JP", sans-serif;
-    text-align: center;
-    color: #0f1419;
-    img {
-      max-width: 90%;
-      height: auto;
-    }
-  }
-</style>
