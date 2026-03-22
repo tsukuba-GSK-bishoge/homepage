@@ -1,34 +1,66 @@
 ---
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+const SITE_TITLE = "筑波大学現代視覚文化研究会 美少女ゲーム制作班";
+const SITE_DESCRIPTION = "こちらは筑波大学公認サークルである現代視覚文化研究会 美少女ゲーム制作班の公式サイトです。";
+const SITE_KEYWORDS =
+  "筑波大学, 'University of Tsukuba', げんしけん, 現代視覚文化研究会, 美少女ゲーム制作班, 美少女ゲーム, エロゲ, エロゲー, eroge, サークル, philia, 公式サイト, bishojyo, 美少女, びしょげちゃん";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
+    <!-- meta settings start -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff8bd3" />
     <meta name="generator" content={Astro.generator} />
-    <title>美少女ゲーム制作班</title>
-    <GoogleFontsOptimizer url={`https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap`} />
+    <meta property="description" content={SITE_DESCRIPTION} />
+    <meta name="keyword" content={SITE_KEYWORDS} />
+    <!-- meta settings end -->
+    <!-- icon settings start -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- icon settings end -->
+    <!-- OG setting start -->
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/Kirinoha-Novel/natsuiro-nikki-website/refs/heads/main/public/og-image.webp"
+    />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bishojo.gsk-tsukuba.net" />
+    <!-- OG setting end -->
+    <!-- Twitter card settings start -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tsukuba_bishojo" />
+    <meta name="twitter:creator" content="@tsukuba_bishojo" />
+    <!-- Twitter card settings end -->
+    <title>{SITE_TITLE}</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "Noto Sans JP", sans-serif;
+        text-align: center;
+        color: #0f1419;
+        img {
+          max-width: 90%;
+          height: auto;
+        }
+      }
+    </style>
   </head>
   <body>
     <slot />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    font-family: "Noto Sans JP", sans-serif;
-    text-align: center;
-    color: #0f1419;
-    img {
-      max-width: 90%;
-      height: auto;
-    }
-  }
-</style>

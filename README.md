@@ -1,71 +1,52 @@
-# 筑波大学現代視覚文化研究会美少女ゲーム制作班公式ホームページ
+# 筑波大学現代視覚文化研究会 美少女ゲーム制作班 公式ホームページ
 
-[https://bishojo.gsk-tsukuba.net/](https://bishojo.gsk-tsukuba.net/)にて公開されている、美少女ゲーム制作班のホームページです。
+[https://bishojo.gsk-tsukuba.net/](https://bishojo.gsk-tsukuba.net/) にて公開されている公式ホームページです。
 
-## 開発について
+## 開発環境
 
-下にあるようにこのプロジェクトは[Astrojs](https://astro.build/)によって開発されています。
-下記のAstroにもともとある機能に加えて、保守性を高めるために以下を導入しています。
+[Astro](https://astro.build/) で開発されています。コード品質のために以下を導入しています。
 
-- [ESLint](https://eslint.org/)
+- **[ESLint](https://eslint.org/)** — JavaScript のソースコード上の問題を発見・修正します。
+- **[Prettier](https://prettier.io/)** — ソースコードのフォーマットを統一します。
 
-  JavaScriptのソースコード上の問題を発見、修正します。
+### セットアップ
 
-- [Prettier](https://prettier.io/)
+```bash
+npm install
+npm run dev      # 開発サーバー起動
+npm run build    # 本番ビルド
+npm run preview  # ビルド結果のプレビュー
+```
 
-  ソースコードの形式を統一します。
+## CI/CD
 
-- GitHub Actions
+### CI（継続的インテグレーション）
 
-  GitHubにコードをプッシュするなどの特定の条件で発動する開発の半自動化システムです。
+`master` ブランチへの Pull Request 時に ESLint と Prettier によるチェックが自動で走ります。チェックを通過しないと PR をマージできません。
 
-  - CI
+手元でも事前に確認できます：
 
-    上記2つを用い、ソースコードに問題がないことを`master`ブランチへのマージ前に確認します。
-    このチェックに通らない場合、Pull Requestはマージできません。
-    手元で、
+```bash
+npm run eslint:check
+npm run format:check
+```
 
-    ```
-    npm run eslint
-    npm run format
-    ```
+問題があれば以下で自動修正できます：
 
-    をそれぞれ実行したり、ソースコード中のバグを手動で除去したりして問題がない状態にしてください。
+```bash
+npm run eslint
+npm run format
+```
 
-  - CD
+### CD（継続的デプロイ）
 
-    開発が行われている2025年3月末現在、
-    このホームページは、現代視覚文化研究会情報システム担当が管理している[さくらインターネット](https://www.sakura.ad.jp/)のVPSの上で、
-    [portainer](https://www.portainer.io/)で管理された[Docker](https://www.docker.com/)コンテナ群の1つとして稼働することとなっています。
-    `master`ブランチへのPull Requestがマージされた際にただちにこの本番環境に反映されるように、自動でデプロイされるアクションを現在整備中です。
+`master` ブランチへのマージ時に自動でデプロイされます。Docker イメージ（Node ビルダー → Nginx）をビルドして GHCR に push し、さくらインターネット VPS 上の [Portainer](https://www.portainer.io/) 経由で反映されます。
 
-### 内容を更新したい!!
+## コンテンツの更新
 
-比較的簡単に更新できるようになっているのは、「お知らせ(news)」、「作品(works)」の2つです。
+### お知らせ（news）
 
-それぞれ元のテキストはMarkdown形式[^markdown]で書かれており、画像などのアセットファイルは特定のディレクトリ(フォルダ)に置くことを推奨しています。
-
-以下の手順で適当に作ったものをgit commitしてGitHub上でPRを作ってマージしてください。
-分からない人は分かる人に聞いてください。
-
-それ以外については、それほどは簡単に更新できないものの、
-`src/pages/`以下が、URL上のホーム以下に対応しているので、見る人が見れば分かるはずです。
-
-(たとえばホーム https://bishojo.gsk-tsukuba.net/ をいじりたかったら`src/pages/index.astro`を、メンバー募集 https://bishojo.gsk-tsukuba.net/members/ の画像が古いと思ったら`src/pages/members.astro`を、とりあえず見に行って順に辿っていけば良いということです。)
-
-[^markdown]: テキストの修飾を軽量に行えるマークアップ記法。本当に何も難しくないのでぜひ調べて書いてください。
-
-#### お知らせ(news)
-
-##### お知らせのファイル作成、日付と説明、本文
-
-例えば`hoge`(任意の文字列で置き換えてください。ただしURLなどに露出するためアルファベットでハイフン区切りを推奨します)というお知らせを作りたいとき、
-
-`src/content/news/`以下に`hoge.md`ファイルを作ってください(つまり`src/content/news/hoge.md`ができる)。
-
-この場合、URLでは`https://bishojo.gsk-tsukuba.net/news/#hoge`となります。
-
-ファイルの冒頭に以下のように記述して日付(`date`, `YYYY/MM/DD`形式を推奨)と説明(`description`)を付けてください。付けないと壊れますので注意を。
+`src/content/news/{slug}.md` を作成します。`{slug}` はアルファベット・ハイフン区切り推奨。
 
 ```md
 ---
@@ -73,123 +54,39 @@ date: 2025/04/27
 description: ホームページを公開しました
 ---
 
-本文ですわ〜。
+本文をここにMarkdown形式で書きます。
 ```
 
-お知らせの本文は、これに続けてMarkdown記法で記述できます。
+- URL: `https://bishojo.gsk-tsukuba.net/news/#{slug}`
+- 画像などのアセット: `src/assets/news/{slug}/` に置き、`![説明](../../assets/news/{slug}/fuga.png)` で参照できます。
 
-##### 画像ファイル
+### 作品（works）
 
-画像などのアセットファイルを使いたい場合、
-
-`src/assets/news/hoge/`というディレクトリを作り、例えば`fuga.png`をそこに置きます。
-
-`src/content/news/hoge.md`のMarkdownからは
-
-```md
-![fuga](../../assets/news/hoge/fuga.png)
-```
-
-として参照できます。
-
-#### 作品(works)
-
-お知らせと大まかには同じ雰囲気です。
-
-##### 作品のファイル作成とタイトル、説明
-
-例えば`hoge`という作品を作りたいとき、
-
-`src/content/works/`以下に`hoge.md`ファイルを作ってください(つまり`src/content/works/hoge.md`ができる)。
-
-ファイルの冒頭に以下のように記述して、タイトル(`title`)、説明(`description`)を付けてください。
+`src/content/works/{slug}.md` を作成します。
 
 ```md
 ---
-title: hogehoge
-description: fugafuga
----
-```
-
-##### キービジュアル画像
-
-キービジュアルの画像を`src/assets/works/hoge/keyvisual.png`として置いてください。
-
-png以外にjpeg, jpg, gifのファイル拡張子が使えるらしいですが本当かは知りません。
-
-**いずれの場合も`keyvisual.拡張子`としないと表示されません。**
-
-https://bishojo.gsk-tsukuba.net/works/ にタイトル、説明、キービジュアルの3つがサムネイルとして載ります。
-
-##### 作品の本文、画像ファイル
-
-本文は
-
-`https://bishojo.gsk-tsukuba.net/works/hoge`
-
-に生えます。先程のworksのほうからリンクされているはずですが...。
-
-上記のファイル冒頭の記述に続けて、Markdown記法を使って書いてください。
-
-画像などのアセットファイルを使いたい場合、
-
-`src/assets/works/hoge/`というディレクトリを作り、例えば`fuga.png`をそこに置きます。
-
-`src/content/works/hoge.md`のMarkdownからは
-
-```md
-![fuga](../../assets/works/hoge/fuga.png)
-```
-
-として参照できます。
-
+title: 作品タイトル
+description: 作品の説明
 ---
 
-## Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
+本文をここにMarkdown形式で書きます。
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+- キービジュアル画像（必須）: `src/assets/works/{slug}/keyvisual.{png|jpg|jpeg|gif}` に配置してください。
+- URL: `https://bishojo.gsk-tsukuba.net/works/{slug}`
+- 画像などのアセット: `src/assets/works/{slug}/` に置き、`![説明](../../assets/works/{slug}/fuga.png)` で参照できます。
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### その他のページ
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+`src/pages/` 以下のファイルがそのまま URL に対応しています。
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| ファイル                    | URL          |
+| --------------------------- | ------------ |
+| `src/pages/index.astro`     | `/`          |
+| `src/pages/about.astro`     | `/about`     |
+| `src/pages/works.astro`     | `/works`     |
+| `src/pages/news.astro`      | `/news`      |
+| `src/pages/character.astro` | `/character` |
+| `src/pages/members.astro`   | `/members`   |
+| `src/pages/contact.astro`   | `/contact`   |

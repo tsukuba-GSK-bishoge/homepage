@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import bishogechan from "../assets/bishogechan.png";
 ---
 
 <Layout>
@@ -11,7 +13,7 @@ import Footer from "../components/Footer.astro";
     <p>美少女ゲーム制作班公式キャラクター『びしょげちゃん』についてご紹介します。</p>
     <h3>びしょげちゃん</h3>
     <p>「僕はびしょげちゃん。君たちにこの美少女ゲーム制作班について教えるね。」</p>
-    <p><img src="/images/bishogechan.png" alt="びしょげちゃん" width="300" height="530" /></p>
+    <p><Image src={bishogechan} alt="びしょげちゃん" width="300" /></p>
   </main>
   <Footer />
 </Layout>
