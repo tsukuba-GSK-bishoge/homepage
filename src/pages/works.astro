@@ -2,7 +2,6 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import WorkThumbnail from "../components/WorkThumbnail.astro";
-
 import { getCollection } from "astro:content";
 const works = await getCollection("works");
 import Footer from "../components/Footer.astro";
@@ -20,7 +19,7 @@ import Footer from "../components/Footer.astro";
 
     <div>
       {
-        works.map((work: any) => (
+        works.map((work) => (
           <WorkThumbnail
             title={work.data.title}
             description={work.data.description}

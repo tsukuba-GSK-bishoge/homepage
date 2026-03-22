@@ -18,6 +18,8 @@ jobs:
           node-version: "latest"
       - name: Node Packages Installation
         run: npm install
+      - name: Astro Check
+        run: npm run check
       - name: ESLint
         run: npm run eslint:check
       - name: Prettier

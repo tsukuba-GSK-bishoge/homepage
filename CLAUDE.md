@@ -9,6 +9,7 @@ npm run dev          # Start development server
 npm run build        # Production build
 npm run preview      # Preview production build
 
+npm run check        # Type-check all Astro/TS files (astro check)
 npm run eslint       # Run ESLint with auto-fix
 npm run eslint:check # Check ESLint without fixing
 npm run format       # Format with Prettier
