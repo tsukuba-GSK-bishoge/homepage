@@ -18,10 +18,10 @@ const { Content } = await render(work);
 // 一般にはimportを使って取り込むが、文字列リテラルになり得ないパスの場合、
 // 次のようにimport.meta.globを用いて動的に取り込む必要がある
 // ただし、背景画像に用いる際、cssにurlを渡す必要性からgetImageを用いる
-const keyVisualPath = "/src/assets/works/" + work.id + "/keyvisual.png";
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/works/*/keyvisual.{jpeg,jpg,png,gif}");
+const keyVisualPath = "/src/assets/works/" + work.id + "/keyvisual.webp";
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/works/*/keyvisual.{jpeg,jpg,png,gif,webp}");
 if (!images[keyVisualPath]) {
-  throw new Error(`"${keyVisualPath}" does not exist in glob: "/src/assets/works/*/keyvisual.{jpeg,jpg,png,gif}"`);
+  throw new Error(`"${keyVisualPath}" does not exist in glob: "/src/assets/works/*/keyvisual.{jpeg,jpg,png,gif,webp}"`);
 }
 const backgroundImage = await getImage({ src: images[keyVisualPath](), width: 500, height: 500 });
 ---
