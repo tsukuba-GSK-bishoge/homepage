@@ -9,6 +9,7 @@ npm run dev          # Start development server
 npm run build        # Production build
 npm run preview      # Preview production build
 
+npm run check        # Type-check all Astro/TS files (astro check)
 npm run eslint       # Run ESLint with auto-fix
 npm run eslint:check # Check ESLint without fixing
 npm run format       # Format with Prettier
@@ -23,7 +24,7 @@ CI runs `eslint:check` and `format:check` on every PR to master.
 
 **Routing**: File-based. `src/pages/[name].astro` maps to `/{name}`. All pages are pre-built to static HTML.
 
-**Content Collections** (`src/content/`): Markdown files loaded via Astro's glob loader with Zod schema validation.
+**Content Collections** (`src/contents/`): Markdown files loaded via Astro's glob loader with Zod schema validation.
 
 - `news/{slug}.md` — frontmatter: `date` (YYYY/MM/DD), `description`
 - `works/{slug}.md` — frontmatter: `title`, `description`; requires `src/assets/works/{slug}/keyvisual.{png|jpg|jpeg|gif}`

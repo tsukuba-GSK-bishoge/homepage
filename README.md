@@ -6,6 +6,7 @@
 
 [Astro](https://astro.build/) で開発されています。コード品質のために以下を導入しています。
 
+- **[`@astrojs/check`](https://github.com/withastro/language-tools)** — Astro / TypeScript の型チェックを行います。
 - **[ESLint](https://eslint.org/)** — JavaScript のソースコード上の問題を発見・修正します。
 - **[Prettier](https://prettier.io/)** — ソースコードのフォーマットを統一します。
 
@@ -16,19 +17,21 @@ npm install
 npm run dev      # 開発サーバー起動
 npm run build    # 本番ビルド
 npm run preview  # ビルド結果のプレビュー
+npm run check    # 型チェック
 ```
 
 ## CI/CD
 
 ### CI（継続的インテグレーション）
 
-`master` ブランチへの Pull Request 時に ESLint と Prettier によるチェックが自動で走ります。チェックを通過しないと PR をマージできません。
+`master` ブランチへの Pull Request 時に型チェック・ESLint・Prettier によるチェックが自動で走ります。チェックを通過しないと PR をマージできません。
 
 以下のコマンドを実行することで、手元でも事前に確認できます。
 
 ```bash
-npm run eslint:check
-npm run format:check
+npm run check        # 型チェック
+npm run eslint:check # ESLint チェック
+npm run format:check # フォーマットチェック
 ```
 
 問題があれば、以下のコマンドで自動修正できます。
@@ -46,7 +49,7 @@ npm run format
 
 ### お知らせ（news）
 
-`src/content/news/{slug}.md` を作成します。`{slug}` はアルファベット・ハイフン区切り推奨。
+`src/contents/news/{slug}.md` を作成します。`{slug}` はアルファベット・ハイフン区切り推奨。
 
 ```md
 ---
@@ -62,7 +65,7 @@ description: ホームページを公開しました
 
 ### 作品（works）
 
-`src/content/works/{slug}.md` を作成します。
+`src/contents/works/{slug}.md` を作成します。
 
 ```md
 ---

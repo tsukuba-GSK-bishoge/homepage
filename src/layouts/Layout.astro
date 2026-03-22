@@ -1,8 +1,30 @@
 ---
+import "../styles/global.css";
+
 const SITE_TITLE = "筑波大学現代視覚文化研究会 美少女ゲーム制作班";
 const SITE_DESCRIPTION = "こちらは筑波大学公認サークルである現代視覚文化研究会 美少女ゲーム制作班の公式サイトです。";
 const SITE_KEYWORDS =
   "筑波大学, 'University of Tsukuba', げんしけん, 現代視覚文化研究会, 美少女ゲーム制作班, 美少女ゲーム, エロゲ, エロゲー, eroge, サークル, philia, 公式サイト, bishojyo, 美少女, びしょげちゃん";
+const SITE_OG_IMAGE =
+  "https://raw.githubusercontent.com/tsukuba-GSK-bishoge/homepage/refs/heads/master/public/og-image.webp";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = SITE_OG_IMAGE,
+  ogType = "website",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -13,7 +35,7 @@ const SITE_KEYWORDS =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ff8bd3" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="description" content={SITE_DESCRIPTION} />
+    <meta property="description" content={description} />
     <meta name="keyword" content={SITE_KEYWORDS} />
     <!-- meta settings end -->
     <!-- icon settings start -->
@@ -39,7 +61,7 @@ const SITE_KEYWORDS =
       sizes="180x180"
       href="https://raw.githubusercontent.com/tsukuba-GSK-bishoge/homepage/refs/heads/master/public/apple-touch-icon.png"
     />
-    <meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
+    <meta name="apple-mobile-web-app-title" content={title} />
     <link
       rel="manifest"
       href="/https://raw.githubusercontent.com/tsukuba-GSK-bishoge/homepage/refs/heads/master/public/manifest.json"
@@ -48,15 +70,12 @@ const SITE_KEYWORDS =
     <!-- OG setting start -->
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:site_name" content={SITE_TITLE} />
-    <meta property="og:title" content={SITE_TITLE} />
-    <meta property="og:description" content={SITE_DESCRIPTION} />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/tsukuba-GSK-bishoge/homepage/refs/heads/master/public/og-image.webp"
-    />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="4160" />
     <meta property="og:image:height" content="2544" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content="https://bishojo.gsk-tsukuba.net" />
     <!-- OG setting end -->
     <!-- Twitter card settings start -->
@@ -64,22 +83,7 @@ const SITE_KEYWORDS =
     <meta name="twitter:site" content="@tsukuba_bishojo" />
     <meta name="twitter:creator" content="@tsukuba_bishojo" />
     <!-- Twitter card settings end -->
-    <title>{SITE_TITLE}</title>
-    <style>
-      html,
-      body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        font-family: "Noto Sans JP", sans-serif;
-        text-align: center;
-        color: #0f1419;
-        img {
-          max-width: 90%;
-          height: auto;
-        }
-      }
-    </style>
+    <title>{title}</title>
   </head>
   <body>
     <slot />
