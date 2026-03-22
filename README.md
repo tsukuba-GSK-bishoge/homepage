@@ -49,7 +49,7 @@ npm run format
 
 ### お知らせ（news）
 
-`src/content/news/{slug}.md` を作成します。`{slug}` はアルファベット・ハイフン区切り推奨。
+`src/contents/news/{slug}.md` を作成します。`{slug}` はアルファベット・ハイフン区切り推奨。
 
 ```md
 ---
@@ -65,7 +65,7 @@ description: ホームページを公開しました
 
 ### 作品（works）
 
-`src/content/works/{slug}.md` を作成します。
+`src/contents/works/{slug}.md` を作成します。
 
 ```md
 ---
