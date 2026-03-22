@@ -1,6 +1,6 @@
 {
-  "name": "Pay Crew2",
-  "short_name": "Pay Crew2",
+  "name": "筑波大学現代視覚文化研究会 美少女ゲーム制作班",
+  "short_name": "美少女ゲーム制作班",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#001c32",
-  "background_color": "#001d33",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone"
 }
