@@ -1,5 +1,5 @@
 {
-  description = "nodejs flake sample";
+  description = "Development environment for the tsukuba-GSK-bishoge/homepage repository.";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -16,7 +16,6 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             nodejs
-            corepack
           ];
         };
       }
