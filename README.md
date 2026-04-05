@@ -80,6 +80,26 @@ description: 作品の説明
 - URL: `https://bishojo.gsk-tsukuba.net/works/{slug}`
 - 画像などのアセット: `src/assets/works/{slug}/` に置き、`![説明](../../assets/works/{slug}/fuga.png)` で参照できます。
 
+### ブラウザでプレイ可能な作品の追加
+
+TyranoScript で作成した作品は、Git サブモジュールとして `public/works/{slug}/play/` に配置することでブラウザから直接プレイできます。
+
+```bash
+# サブモジュールとして追加
+git submodule add <リポジトリURL> public/works/{slug}/play
+
+# コミット
+git add .gitmodules public/works/{slug}/play
+git commit -m "feat: add playable build for {slug}"
+```
+
+- URL: `https://bishojo.gsk-tsukuba.net/works/{slug}/play/`
+- 作品リポジトリは、ルートに `index.html` がある静的サイトとしてビルド済みの状態にしてください。
+- `npm run dev` でローカルでもそのまま動作確認できます。
+
+> [!NOTE]
+> クローン時にサブモジュールを取得するには `git clone --recursive` を使うか、既存リポジトリでは `git submodule update --init --recursive` を実行してください。
+
 ### その他のページ
 
 `src/pages/` 以下のファイルがそのまま URL に対応しています。
@@ -93,3 +113,4 @@ description: 作品の説明
 | `src/pages/character.astro` | `/character` |
 | `src/pages/members.astro`   | `/members`   |
 | `src/pages/contact.astro`   | `/contact`   |
+
