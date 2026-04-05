@@ -112,4 +112,3 @@ git commit -m "feat: add playable build for {slug}"
 | `src/pages/character.astro` | `/character` |
 | `src/pages/members.astro`   | `/members`   |
 | `src/pages/contact.astro`   | `/contact`   |
-
