@@ -4,4 +4,3 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   // integrations: [googleFontsOptimizer()], // ← ここも無効化
 });
-

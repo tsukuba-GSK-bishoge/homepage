@@ -24,4 +24,3 @@ jobs:
         run: npm run eslint:check
       - name: Prettier
         run: npm run format:check
-
