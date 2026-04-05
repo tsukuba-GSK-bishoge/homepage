@@ -17,3 +17,4 @@ RUN apt-get install -y apache2-utils
 RUN echo ${BASIC_PASSWD} | htpasswd -i -c /etc/nginx/.htpasswd ${BASIC_USER}
 
 EXPOSE 80
+

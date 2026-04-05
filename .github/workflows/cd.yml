@@ -57,3 +57,4 @@ jobs:
           BRANCH: release
           FOLDER: release
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

@@ -38,3 +38,4 @@ Assets for content go in `src/assets/news/{slug}/` or `src/assets/works/{slug}/`
 ## Prettier Config
 
 Print width 120, 2-space indent, double quotes, trailing commas (ES5), LF line endings. The `prettier-plugin-astro` handles `.astro` files.
+
