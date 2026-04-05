@@ -94,7 +94,6 @@ git commit -m "feat: add playable build for {slug}"
 ```
 
 - URL: `https://bishojo.gsk-tsukuba.net/works/{slug}/play/`
-- 作品リポジトリは、ルートに `index.html` がある静的サイトとしてビルド済みの状態にしてください。
 - `npm run dev` でローカルでもそのまま動作確認できます。
 
 > [!NOTE]
@@ -113,3 +112,4 @@ git commit -m "feat: add playable build for {slug}"
 | `src/pages/character.astro` | `/character` |
 | `src/pages/members.astro`   | `/members`   |
 | `src/pages/contact.astro`   | `/contact`   |
+
