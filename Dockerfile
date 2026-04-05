@@ -10,3 +10,4 @@ COPY --from=builder /build/dist /usr/share/nginx/html
 COPY ./nginx/default.conf /etc/nginx/conf.d
 
 EXPOSE 80
+
