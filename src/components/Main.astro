@@ -6,10 +6,11 @@ import Header from "../components/Header.astro";
 import Slider from "./Slider.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
-import keyvisual from "../assets/keyvisual.webp";
+
+import tarinaiTenshisama from "../assets/tarinai-tenshisama-keyvisual.webp";
 import pure from "../assets/pure.webp";
 import otogi from "../assets/otogi.webp";
-import shinkan from "../assets/shinkan.jpg";
+import shinkan from "../assets/gsk-shinkan2026.jpg";
 import kazariwaku from "../assets/kazariwaku.webp";
 ---
 
@@ -17,10 +18,10 @@ import kazariwaku from "../assets/kazariwaku.webp";
   <Header selected="HOME" />
   <Slider
     images={[
-      { src: keyvisual, url: "/" },
+      { src: shinkan, url: "https://x.com/gsk_shinkan/status/2038848823603425384" },
+      { src: tarinaiTenshisama, url: "/works/tarinai-tenshisama" },
       { src: pure, url: "/" },
       { src: otogi, url: "/" },
-      { src: shinkan, url: "/" },
     ]}
   />
 
