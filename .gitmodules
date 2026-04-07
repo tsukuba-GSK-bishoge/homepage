@@ -2,3 +2,6 @@
 	path = public/private-fonts
 	url = https://github.com/tsukuba-GSK-bishoge/homepage-fonts.git
 
+[submodule "public/works/shinkan26-game/play"]
+	path = public/works/shinkan26-game/play
+	url = https://github.com/tsukuba-GSK-bishoge/shinkan26-game.git
