@@ -10,14 +10,44 @@
 - **[ESLint](https://eslint.org/)** — JavaScript のソースコード上の問題を発見・修正します。
 - **[Prettier](https://prettier.io/)** — ソースコードのフォーマットを統一します。
 
-### セットアップ
+## セットアップ
 
 ```bash
+git clone --recurse-submodules https://github.com/tsukuba-GSK-bishoge/homepage.git
 npm install
-npm run dev      # 開発サーバー起動
-npm run build    # 本番ビルド
-npm run preview  # ビルド結果のプレビュー
-npm run check    # 型チェック
+```
+
+## コマンド一覧
+
+### 開発サーバの起動
+
+```bash
+npm run dev
+```
+
+### 本番環境のプレビュー
+
+```bash
+npm run build # 本番ビルド
+npm run preview # ビルド結果のプレビュー
+```
+
+### ファイルのフォーマット
+
+```bash
+npm run format
+```
+
+### コードのチェックと自動修正
+
+```bash
+npm run eslint
+```
+
+### 型のチェック
+
+```bash
+npm run check
 ```
 
 ## CI/CD
@@ -94,7 +124,7 @@ git commit -m "feat: add playable build for {slug}"
 ```
 
 - URL: `https://bishojo.gsk-tsukuba.net/works/{slug}/play/`
-- `npm run dev` でローカルでもそのまま動作確認できます。
+- `npm run build && npm run preview` でローカルでもそのまま動作確認できます。 (一度、buildする必要があります。)
 
 > [!NOTE]
 > クローン時にサブモジュールを取得するには `git clone --recursive` を使うか、既存リポジトリでは `git submodule update --init --recursive` を実行してください。
