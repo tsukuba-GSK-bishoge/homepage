@@ -13,7 +13,7 @@ jobs:
   update-submodules:
     runs-on: ubuntu-latest
     steps:
-      - name: Create PAT Token
+      - name: Create App Token
         uses: actions/create-github-app-token@v1
         id: app-token
         with:
@@ -27,53 +27,21 @@ jobs:
         with:
           submodules: recursive
           token: ${{ steps.app-token.outputs.token }}
-          fetch-depth: 0
 
       - name: Update submodules to latest
         run: git submodule update --remote --recursive
 
-      - name: Check for changes
-        id: changes
-        run: |
-          if git diff --quiet; then
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          commit-message: "chore: update submodules to latest"
+          branch: chore/update-submodules
+          title: "chore: update submodules to latest"
+          body: |
+            ## Summary
+            - Automated submodule update via `git submodule update --remote --recursive`
 
-      - name: Close existing submodule update PRs
-        if: steps.changes.outputs.has_changes == 'true'
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          gh pr list --label "submodule-update" --state open --json number --jq '.[].number' | while read -r pr_number; do
-            echo "Closing PR #${pr_number}"
-            gh pr close "$pr_number" --comment "Closed in favor of a newer submodule update PR."
-          done
-
-      - name: Create branch and PR
-        if: steps.changes.outputs.has_changes == 'true'
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          branch_name="chore/update-submodules-$(date +%Y%m%d-%H%M%S)"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
-          git checkout -b "$branch_name"
-          git add -A
-          git commit -m "chore: update submodules to latest"
-          git push origin "$branch_name"
-
-          gh pr create \
-            --title "chore: update submodules to latest" \
-            --body "$(cat <<'EOF'
-          ## Summary
-          - Automated submodule update via `git submodule update --remote --recursive`
-
-          This PR was created automatically by the scheduled GitHub Actions workflow.
-          EOF
-          )" \
-            --base master \
-            --head "$branch_name" \
-            --label "submodule-update"
+            This PR was created automatically by the scheduled GitHub Actions workflow.
+          labels: submodule-update
+          base: master
