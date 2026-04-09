@@ -43,5 +43,5 @@ jobs:
             - Automated submodule update via `git submodule update --remote --recursive`
 
             This PR was created automatically by the scheduled GitHub Actions workflow.
-          labels: submodule-update
           base: master
+
