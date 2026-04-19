@@ -353,6 +353,8 @@ branchは変更の流れが枝分かれしたものです。
 
 このリポジトリでは普段は`master`ブランチが中心になっています。
 ただし直接`master`をいじるのではなく、作業用のbranchを切ってそこから変更を送ることが多いです。
+初心者向けに強く言うと、`main`や`master`のような本体のbranchに直接pushするのはやめましょう。
+必ず作業用のbranchで変更して、Pull Requestを作ってから取り込んでもらうほうが安全です。
 
 ### gitの使い方
 
@@ -423,13 +425,18 @@ git pull
 git push
 ```
 
+ただしその前に、いきなりpushしないで`npm run build`が通るか確認してください。
+buildが失敗する状態でpushすると、サイトが壊れたり、あとで直す手間が増えたりします。
+**また`main`や`master`に直接pushするのではなく、作業用のbranchにpushしてPull Requestを作るようにしてください。**
+
 この流れをまとめると
 
 1. ファイルを編集する
 2. `git status`で状態を見る
 3. `git add`で今回記録したい変更を選ぶ
 4. `git commit`で記録する
-5. `git push`でGitHubに送る
+5. `npm run build`が通るか確認する
+6. `git push`で作業用branchをGitHubに送る
 
 となります。
 
