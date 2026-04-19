@@ -2,6 +2,8 @@
 
 [https://bishojo.gsk-tsukuba.net/](https://bishojo.gsk-tsukuba.net/) にて公開されている公式ホームページです。
 
+このrepositoryを編集したい方の中でここに書いてあることが全くわからないという人はdocs/for-beginner.mdを見てください
+
 ## 開発環境
 
 [Astro](https://astro.build/) で開発されています。コード品質のために以下を導入しています。
