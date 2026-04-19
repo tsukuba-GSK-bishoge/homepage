@@ -7,7 +7,14 @@
   footer {
     display: block;
     background-image: linear-gradient(to right, #fffee0, #ffdaf4, #ebceff);
-    padding: 1em;
+    padding: 1rem var(--page-gutter);
+    box-sizing: border-box;
+
+    p {
+      width: min(100%, 56rem);
+      margin: 0.75rem auto 0;
+      line-height: 1.6;
+    }
 
     a {
       display: block;

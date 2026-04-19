@@ -13,28 +13,29 @@ const { description, id } = Astro.props;
 
 <style>
   article {
-    margin: 1em;
-    padding: 1em;
+    margin: 1rem auto;
+    padding: 1rem;
     background-color: #fff5fb;
-    border-radius: 0.5em;
-    width: auto;
-    display: grid;
-    @media screen and (max-width: 768px) {
-      display: block;
-    }
-    grid-template-columns: 1fr auto;
+    border-radius: 0.75rem;
+    width: min(100%, 48rem);
+    display: block;
+    box-sizing: border-box;
 
     #text-wrapper {
-      padding: 2em;
+      padding: clamp(0.5rem, 2vw, 1.5rem);
 
       h2 {
         text-align: center;
+        margin: 0;
+        font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.4rem);
+        line-height: 1.6;
       }
 
       section {
         position: relative;
         transition: 0.25s all;
         width: fit-content;
+        margin: 1rem auto 0;
         a {
           text-decoration: none;
         }
@@ -42,18 +43,6 @@ const { description, id } = Astro.props;
 
       section:hover {
         transform: scale(1.1);
-      }
-    }
-
-    #image-wrapper {
-      padding: 2em;
-      .key-visual {
-        width: auto;
-        height: 80vh;
-        @media screen and (max-width: 768px) {
-          width: 100%;
-          height: auto;
-        }
       }
     }
   }
