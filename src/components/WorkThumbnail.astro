@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 
-const { title, description, keyVisualPath } = Astro.props;
+const { id, title, description, keyVisualPath } = Astro.props;
 import { Image } from "astro:assets";
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/works/*/keyvisual.{jpeg,jpg,png,gif,webp}");
 if (!images[keyVisualPath])
@@ -18,9 +18,9 @@ if (!images[keyVisualPath])
     </div>
     <div id="text-wrapper">
       <p>{description}</p>
-      <!-- <section> -->
-      <!--   <a href={"/works/" + id}>&gt;&gt; Read more...</a> -->
-      <!-- </section> -->
+      <section>
+        <a href={"/works/" + id}>&gt;&gt; Read more...</a>
+      </section>
     </div>
   </main>
 </article>
