@@ -43,14 +43,20 @@ const { selected }: Props = Astro.props;
 </div>
 
 <style>
+  #menu {
+    width: min(100%, 32rem);
+    margin: 0 auto;
+  }
+
   #button {
     display: block;
-    width: 5rem;
-    height: 5rem;
+    width: clamp(3.5rem, 14vw, 5rem);
+    height: clamp(3.5rem, 14vw, 5rem);
     background-color: rgba(0, 0, 0, 0);
     border: none;
     padding: 0.5rem;
     cursor: pointer;
+    margin-left: auto;
   }
 
   #hamburger-wrapper {
@@ -107,22 +113,26 @@ const { selected }: Props = Astro.props;
   }
 
   .tab {
-    padding: 1rem;
+    padding: 0.9rem 1rem;
     background-image: linear-gradient(to right, #ebceff, #ffdaf4, #fffee0);
     display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(15, 20, 25, 0.08);
 
     a {
       text-decoration: none;
       color: inherit;
+      display: grid;
+      gap: 0.15rem;
+      width: 100%;
     }
 
     h1 {
-      display: inline-block;
       margin: 0;
+      font-size: clamp(1rem, 0.8rem + 0.8vw, 1.25rem);
     }
 
     p {
-      display: inline-block;
       margin: 0;
     }
   }
@@ -130,7 +140,7 @@ const { selected }: Props = Astro.props;
   }
   .ja-text {
     font-family: "JK Gothic", sans-serif;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 0.72rem + 0.35vw, 0.95rem);
     margin: 0;
   }
 </style>
