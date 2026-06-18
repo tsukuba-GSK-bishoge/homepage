@@ -20,7 +20,7 @@
     "astro": "^6.0.0",
     "astro-google-fonts-optimizer": "^0.2.2",
     "swiper": "^12.1.2",
-    "typescript": "^5.8.2"
+    "typescript": "^6.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.28.0",
