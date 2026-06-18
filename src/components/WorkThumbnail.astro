@@ -94,9 +94,12 @@ if (!images[keyVisualPath])
       padding: 1rem;
       box-sizing: border-box;
       .key-visual {
-        width: min(100%, 48rem);
+        display: block;
+        width: auto;
         height: auto;
+        max-width: min(100%, 48rem);
         max-height: 80vh;
+        margin: 0 auto;
       }
     }
   }
